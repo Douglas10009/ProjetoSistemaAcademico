@@ -7,12 +7,14 @@ public class Principal {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		// Menu principal 
-			// CADASTRAR - Estudante(Nome, CPF) /Professor
+			// CADASTRAR - Estudante(Nome, CPF) /Professor (Nome, CPF, Disciplina)
 			// LOGIN - Estudante/Professor
 		
+			//-- Depois do login/cadastro
+
 			// Como Estudante:
 				// Editar Informacoes (Nome)
-				// Escolher matéria(Disciplina)
+				// Escolher Disciplina
 					// Ver Boletim
 		
 			// Como doscente:
@@ -24,9 +26,9 @@ public class Principal {
 		
 		// 1- CRUD - Estudante, Professor, Disciplina, Turma, Semestre/Periodo
 			// Estudante - Nome, Matricula, CPF, isPassado, Boletim[HashMap]
-			// Professor - Nome, CPF, Materia
+			// Professor - Nome, CPF, disciplina
 			// Disciplina - Nome da disciplinas, Professor   
-			// Turma - Ano, Codigo, Disciplina
+			// Turma - Ano, Codigo
 		// 2- Codigo unico para as turmas
 		// 3- Disciplina tem que ter 1 professor e Estudantes
 		// 4- Registrar notas finais
@@ -39,7 +41,7 @@ public class Principal {
 		
 		switch (opc) {
 		case 1:
-			Estudante Estudante = new Estudante();
+			//Estudante Estudante = new Estudante();
 			System.out.print("Digite seu nome: ");
 			
 			break;
