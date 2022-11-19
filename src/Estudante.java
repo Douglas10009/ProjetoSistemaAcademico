@@ -15,7 +15,7 @@ public class Estudante {
 
 	public  String gerarMatricula(){
 		String matricula = "MATRICULA_TESTE"; //Código da matricula
-		return matricula;
+		return matricula; //Retorna a matricula
 	}
 
 }
