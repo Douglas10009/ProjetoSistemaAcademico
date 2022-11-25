@@ -5,7 +5,7 @@ public class Principal {
 
 	public static void main(String[] args) {
 		//Antes de mostrar a tela de BemVInde, tem que verificar se o programa já foi rodado antes (/Banco de dados)
-		Menu.BemVinde();
+		Menu.Cadastrar();
 
 		// Só pra eu me organizar --
 		// Menu.login();

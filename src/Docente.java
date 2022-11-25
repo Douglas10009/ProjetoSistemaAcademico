@@ -1,29 +1,28 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Estudante {
+public class Docente{
 
-	String matricula, cpf, nome;
-	int periodo;
-	double boletim;
-	String tipo = "estudante";
-	Map<String, String> ListaEstudantes = new HashMap<String, String>(); // CPF - Chave, Nome - Valor
+	String matricula,cpf,nome;
+	String tipo = "docente"; 
+	Map<String, String> ListaDocentes= new HashMap<String, String>();
+	
+	public void cadastrarDocente(){
+		System.out.println("\n \n-----> Cadastrando docente");
+		Pessoa pessoa = new Pessoa(); 
 
-	public void cadastrarEstudante() {
-		System.out.println("\n \n-----> Cadastrando estudante"); // Cadastrando Estudante - AVISO
-		Pessoa pessoa = new Pessoa();
+        pessoa.cadastrarPessoa();// Cadastra o docente como pessoa
 
-		pessoa.cadastrarPessoa(); // Cadastra o estudante, como pessoa
 
-		this.ListaEstudantes.put(pessoa.getCpf(), pessoa.getNome());
+        this.ListaDocentes.put(pessoa.getCpf(), pessoa.getNome());
 
-		System.out.printf("\n----> Cadastro do estudante %s, realizado com sucesso!", pessoa.getNome()); // Cadastro
+		System.out.printf("\n----> Cadastro do docente %s, realizado com sucesso!", pessoa.getNome()); // Cadastro
 																											// Estudante
 																											// Completo
 																											// - AVISO
-		
+
 		String matricula = pessoa.gerarMatricula("docente");
-		Pessoa.armazenarDados("estudante", ListaEstudantes, matricula);
+		Pessoa.armazenarDados("docentes", ListaDocentes, matricula);
 
 		System.out.println("----> Para acessar o portal use as seguntes credenciais: "); // Credenciais Estudante-
 																							// AVISO
@@ -36,8 +35,8 @@ public class Estudante {
 
 	public void getDados() {
 		int contador = 0;
-		for (Map.Entry<String, String> Entry : this.ListaEstudantes.entrySet()) {
-			System.out.println("Estudante n° " + contador);
+		for (Map.Entry<String, String> Entry : this.ListaDocentes.entrySet()) {
+			System.out.println("Docente n° " + contador);
 			System.out.printf("\nNome: %s", Entry.getValue());
 			System.out.printf("\nCPF: %s", Entry.getKey());
 			contador++;
@@ -45,5 +44,6 @@ public class Estudante {
 		// ListaEstudantes.forEach((k, v) -> System.out.printf("\n \nkey: %s | value:
 		// %s", k, v)); //Método 2 de mostrar dados
 	}
+
 
 }
