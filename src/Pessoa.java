@@ -26,7 +26,7 @@ public class Pessoa {
         sc.close();
     }
 
-    public static void armazenarDados(String tipo, Map<String, String> ListaPessoa, String matricula) {
+    public static void armazenarDados(String tipo, Map<String, String> ListaPessoa) {
         File pasta = new File("BancoDeDados");
         if (!pasta.exists()) {
             pasta.mkdir();
@@ -35,8 +35,8 @@ public class Pessoa {
         String arquivo = "";
         if (tipo.equals("estudante")) {
             arquivo = "estudante.txt";
-        } else if (tipo.equals("discente")) {
-            arquivo = "discente.txt";
+        } else if (tipo.equals("docente")) {
+            arquivo = "docente.txt";
         } else {
             System.err.println("Tipo não reconhecido"); // ERROR
         }
@@ -46,9 +46,6 @@ public class Pessoa {
                 gravar.print(Entry.getKey());
                 gravar.print(";");
                 gravar.print(Entry.getValue());
-                gravar.print(";");
-                gravar.print(matricula);
-                gravar.print(";");
                 gravar.print("\n");
             }
             gravar.close();
@@ -60,21 +57,33 @@ public class Pessoa {
 
     int contador = 0000;
 
-    public String gerarMatriculaEstudante() {
+    public String gerarMatricula(String tipo) {
         // ANO + ID + CONTADOR
         // ID = Professor(20) ou Estudante(23)
 
         // Ano atual
         Calendar cal = Calendar.getInstance();
         int ano = cal.get(Calendar.YEAR);
-
-        // Id do estudante
-        int id = 23;
-
-        // Adicionar mais um no contador
-        contador++;
-
-        return ano + Integer.toString(id) + Integer.toString(contador);
+        
+        
+        // Id da pessoa
+        int id = 0;
+        int contadorEstudante = 0;
+        int contadorDocente = 0;
+        
+        if (tipo.equals("estudante")) {
+			id = 23;
+			contadorEstudante ++;
+			return ano + Integer.toString(id) + Integer.toString(contadorEstudante);
+			
+		} else if (tipo.equals("docente")) {
+			id = 20;
+			contadorDocente ++;
+			return ano + Integer.toString(id) + Integer.toString(contadorDocente);
+			
+		} else {
+			return null;
+		}
     }
 
     public void setNome(String nome) {
