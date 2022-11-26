@@ -22,23 +22,4 @@ public class Principal {
 		// Menu.login();
 		// Menu.telaPrincipal();
 	}
-
-	public static void clear() { // Método para limpar a tela
-		// Limpa a tela no windows, no linux e no MacOS
-		try {
-			if (System.getProperty("os.name").contains("Windows"))
-				new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-			else
-				Runtime.getRuntime().exec("clear");
-		} catch (Exception e) {
-		}
-	}
-
-	public static void sleep(int segundos) {
-		segundos *= 1000;// Transformar milisegundos em segundos
-		try {
-			Thread.sleep(segundos);
-		} catch (Exception e) {
-		}
-	}
 }

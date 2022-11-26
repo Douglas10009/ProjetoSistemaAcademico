@@ -38,10 +38,23 @@ public class Pessoa {
         } else if (tipo.equals("docente")) {
             arquivo = "docente.txt";
         } else {
-            System.err.println("Tipo não reconhecido"); // ERROR
+            System.err.println("\n \n-----> Tipo não reconhecido"); // ERROR
+            arquivo = null;
         }
 
-        try (PrintWriter gravar = new PrintWriter(new FileWriter(new File(pasta, arquivo)))) {
+        //Esse bloco ajuda a utilizar o banco de dados já existente
+        File arq = null;
+        if (!new File(pasta, arquivo).exists()) { //Se arquivo náo existir, crie
+            arq = new File(pasta, arquivo);
+            try {
+                arq.createNewFile();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                System.out.println("\n \n ----> OCORREU UM ERRO INESPERADO"); //ERROR
+                e.printStackTrace();
+            }
+        } 
+        try (PrintWriter gravar = new PrintWriter(new FileWriter(arq))) {
             for (Map.Entry<String, String> Entry : ListaPessoa.entrySet()) {
                 gravar.print(Entry.getKey());
                 gravar.print(";");
@@ -53,7 +66,8 @@ public class Pessoa {
             }
             gravar.close();
             System.out.println("\n----> Arquivo de armazenamento de dados criado."); // Armazenamento Dados - AVISO
-        } catch (IOException e) {
+        } catch (Exception e) {
+            System.err.println("\n \n-----> OCORREU UM ERRO INESPERADO"); //error
             e.printStackTrace();
         }
     }

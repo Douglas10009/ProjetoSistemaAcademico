@@ -1,25 +1,24 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Docente{
+public class Docente {
 
-	String matricula,cpf,nome;
-	String tipo = "docente"; 
-	Map<String, String> ListaDocentes= new HashMap<String, String>();
-	
-	public void cadastrarDocente(){
+	String matricula, cpf, nome;
+	String tipo = "docente";
+	Map<String, String> ListaDocentes = new HashMap<String, String>();
+
+	public void cadastrarDocente() {
 		System.out.println("\n \n-----> Cadastrando docente");
-		Pessoa pessoa = new Pessoa(); 
+		Pessoa pessoa = new Pessoa();
 
-        pessoa.cadastrarPessoa();// Cadastra o docente como pessoa
+		pessoa.cadastrarPessoa();// Cadastra o docente como pessoa
 
-
-        this.ListaDocentes.put(pessoa.getCpf(), pessoa.getNome());
+		this.ListaDocentes.put(pessoa.getCpf(), pessoa.getNome());
 
 		System.out.printf("\n----> Cadastro do docente %s, realizado com sucesso!", pessoa.getNome()); // Cadastro
-																											// Estudante
-																											// Completo
-																											// - AVISO
+																										// Estudante
+																										// Completo
+																										// - AVISO
 
 		String matricula = pessoa.gerarMatricula("docente");
 		Pessoa.armazenarDados("docente", ListaDocentes, matricula);
@@ -44,6 +43,5 @@ public class Docente{
 		// ListaEstudantes.forEach((k, v) -> System.out.printf("\n \nkey: %s | value:
 		// %s", k, v)); //Método 2 de mostrar dados
 	}
-
 
 }
