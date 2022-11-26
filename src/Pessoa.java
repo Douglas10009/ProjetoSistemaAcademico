@@ -26,7 +26,7 @@ public class Pessoa {
         sc.close();
     }
 
-    public static void armazenarDados(String tipo, Map<String, String> ListaPessoa) {
+    public static void armazenarDados(String tipo, Map<String, String> ListaPessoa, String matricula) {
         File pasta = new File("BancoDeDados");
         if (!pasta.exists()) {
             pasta.mkdir();
@@ -46,6 +46,9 @@ public class Pessoa {
                 gravar.print(Entry.getKey());
                 gravar.print(";");
                 gravar.print(Entry.getValue());
+                gravar.print(";");
+                gravar.print(matricula);
+                gravar.print(";");
                 gravar.print("\n");
             }
             gravar.close();

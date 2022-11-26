@@ -22,7 +22,7 @@ public class Docente{
 																											// - AVISO
 
 		String matricula = pessoa.gerarMatricula("docente");
-		Pessoa.armazenarDados("docentes", ListaDocentes, matricula);
+		Pessoa.armazenarDados("docente", ListaDocentes, matricula);
 
 		System.out.println("----> Para acessar o portal use as seguntes credenciais: "); // Credenciais Estudante-
 																							// AVISO
