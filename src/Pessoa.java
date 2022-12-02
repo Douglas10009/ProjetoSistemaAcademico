@@ -1,4 +1,6 @@
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,20 +13,15 @@ public class Pessoa {
     String cpf = "";
 
     public void cadastrarPessoa() {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Digite seu nome: ");
-        String nome = sc.nextLine(); // TODO Tratar exceções
-        this.nome = nome;
-        // pessoa.setNome(nome);
-
-        System.out.print("Digite seu cpf: ");
-        String cpf = sc.nextLine(); // TODO Tratar exceções
-        this.cpf = cpf;
+        
         // pessoa.setCpf(cpf);
 
-        sc.close();
+        // sc.close();
     }
+
+    // public boolean BuscarCPF(String CPF){
+    //     BufferedReader ler = new BufferedReader(new FileReader(null))
+    // }
 
     public static void armazenarDados(String tipo, Map<String, String> ListaPessoa, String matricula) {
         File pasta = new File("BancoDeDados");
@@ -44,8 +41,9 @@ public class Pessoa {
 
         //Esse bloco ajuda a utilizar o banco de dados já existente
         File arq = null;
-        if (!new File(pasta, arquivo).exists()) { //Se arquivo náo existir, crie
+        if (!new File(pasta, arquivo).exists()) { //Se arquivo não existir, crie
             arq = new File(pasta, arquivo);
+            
             try {
                 arq.createNewFile();
             } catch (IOException e) {
@@ -53,16 +51,20 @@ public class Pessoa {
                 System.out.println("\n \n ----> OCORREU UM ERRO INESPERADO"); //ERROR
                 e.printStackTrace();
             }
-        } 
-        try (PrintWriter gravar = new PrintWriter(new FileWriter(arq))) {
+        } else{
+            arq = new File(pasta, arquivo);
+        }
+
+        try  {
+            PrintWriter gravar = new PrintWriter(new FileWriter(arq, true));
             for (Map.Entry<String, String> Entry : ListaPessoa.entrySet()) {
-                gravar.print(Entry.getKey());
-                gravar.print(";");
-                gravar.print(Entry.getValue());
-                gravar.print(";");
-                gravar.print(matricula);
-                gravar.print(";");
-                gravar.print("\n");
+                gravar.append(Entry.getKey());
+                gravar.append(";");
+                gravar.append(Entry.getValue());
+                gravar.append(";");
+                gravar.append(matricula);
+                gravar.append(";");
+                gravar.append("\n");
             }
             gravar.close();
             System.out.println("\n----> Arquivo de armazenamento de dados criado."); // Armazenamento Dados - AVISO
@@ -120,3 +122,14 @@ public class Pessoa {
     }
 
 }
+
+
+//Verificar os estudantes no arquivo e colcar no HASHMAP
+//Colocar o <CPF, Estudante> HashMap, para acessar os outros dados do estudante
+
+// Instance of, Pessoa new Estudante - Obrigatório ter para funcionar o código abaixo
+//if(x instanceof Estudante) - Verificar se o contrutor é estudante
+
+//Criar uma classe controle com o cadastro, remover e buscar separados
+//Salvar o HashMap antes de sair do programa
+// HashMap estático

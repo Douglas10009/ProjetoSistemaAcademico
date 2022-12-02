@@ -6,27 +6,31 @@ public class Menu {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("--------- SEJA BEM VINDE ---------");
+		System.out.println("\n \n--------- SEJA BEM VINDE ---------");
 		System.out.println("------ Sistema Acadêmico SA ------");
 		System.out.println("\n1 - Cadastrar estudante");
 		System.out.println("2 - Cadastrar Docente");
 		System.out.print("\nDigite sua escolha: ");
-		int opc = sc.nextInt();
-		sc.nextLine();
+		String opc = sc.next();
+		sc.nextLine(); //Para tirar o enter do buff
 
+		Controle c = new Controle();
 		switch (opc) {
-			case 1: // Cadastrar estudante
-				Estudante estudante = new Estudante();
-				estudante.cadastrarEstudante();
+			case "1": // Cadastrar estudante
+				c.cadastrarEstudante();
+				
+				Estudante.getDados();
 
 				System.out.println("\n \n -----> Tempo para você guardar seus dados.");
+				System.out.println("");
 				barraProgressoLimpo(300);
 				break;
-			case 2: // Cadastrar Discente
+			case "2": // Cadastrar Discente
 				Docente docente = new Docente();
 				docente.cadastrarDocente();
 
 				System.out.println("\n \n -----> Tempo para você guardar seus dados.");
+				System.out.println("");
 				barraProgressoLimpo(300);
 				break;
 			default:
@@ -35,7 +39,6 @@ public class Menu {
 
 		}
 
-		sc.close();
 	}
 
 	public static void progressPercentage(int remain, int total) {

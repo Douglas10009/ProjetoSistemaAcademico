@@ -10,9 +10,11 @@ public class Principal {
 	public static final String ANSI_BOLD = "\u001B[1m";
 	public static final String ANSI_ITALIC = "\u001B[3m";
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		// Antes de mostrar a tela de BemVInde, tem que verificar se o programa já foi
 		// rodado antes (/Banco de dados)
+
+		Controle.lerArquivo();
 		while (true) {
 			Menu.Cadastrar();
 
