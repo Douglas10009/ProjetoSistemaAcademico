@@ -20,6 +20,7 @@ public class Controle {
 
             Estudante.ListaEstudantes.put(valores[0], e);
             linha = ler.readLine();
+            
         }
         
 
