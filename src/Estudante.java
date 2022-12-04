@@ -2,14 +2,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Estudante extends Pessoa{
+public class Estudante extends Pessoa {
 
-	private String matricula, cpf, nome;	
+	private String matricula, cpf, nome;
 	String tipo = "estudante";
-	static Map<String, Estudante> ListaEstudantes = new HashMap<String, Estudante>(); // CPF - Chave, Estudante - Para acessar os outros dados
+	static int ultimo_contador = 0;
 
+	static Map<String, Estudante> ListaEstudantes = new HashMap<String, Estudante>(); // CPF - Chave, Estudante - Para
+																						// acessar os outros dados
 
-	public static void getDados() { //LEMVBRAR DE TIRAR O STATIC
+	public static void getDados() { // LEMVBRAR DE TIRAR O STATIC
 		int contador = 1;
 		for (Map.Entry<String, Estudante> Entry : Estudante.ListaEstudantes.entrySet()) {
 			System.out.println("\n \nEstudante n° " + contador);
@@ -44,5 +46,13 @@ public class Estudante extends Pessoa{
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public int getUltimo_contador() {
+		return ultimo_contador;
+	}
+
+	public void setUltimo_contador(int contador) {
+		Estudante.ultimo_contador = contador;
 	}
 }

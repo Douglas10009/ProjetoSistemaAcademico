@@ -15,7 +15,7 @@ public class Pessoa {
 
         System.out.print("Digite seu nome: ");
         String nome = sc.nextLine(); // TODO Tratar exceções
-        e.setNome(nome); //Pode existir nomes iguais
+        e.setNome(nome); // Pode existir nomes iguais
 
         while (Estudante.ListaEstudantes.get(cpf) == null) {
             System.out.print("Digite seu cpf: ");
@@ -29,7 +29,7 @@ public class Pessoa {
                 System.out.println("\n----> CPF já existe, tente novamente...");
             }
         }
-        
+
     }
 
     // public boolean BuscarCPF(String CPF){
@@ -41,7 +41,8 @@ public class Pessoa {
         File arq = Controle.VerificarPasta_Arquivo("BancoDeDados", "estudante.txt");
 
         try {
-            PrintWriter gravar = new PrintWriter(new FileWriter(arq)); // O true, como segundo parâmetro, é para ele sobreescrever
+            PrintWriter gravar = new PrintWriter(new FileWriter(arq)); // O true, como segundo parâmetro, é para ele
+                                                                       // sobreescrever
             for (Map.Entry<String, Estudante> Entry : Estudante.ListaEstudantes.entrySet()) {
                 gravar.append(Entry.getKey()); // CPF
                 gravar.append(";");
@@ -49,10 +50,13 @@ public class Pessoa {
                 gravar.append(";");
                 gravar.append(Entry.getValue().getMatricula()); // Matricula
                 gravar.append(";");
+                gravar.append(Integer.toString(Entry.getValue().getUltimo_contador())); // Contador
+                gravar.append(";");
                 gravar.append("\n");
             }
             gravar.close();
-            System.out.println("\n----> Arquivo de armazenamento de dados criado/atualizado."); // Armazenamento Dados - AVISO
+            System.out.println("\n----> Arquivo de armazenamento de dados criado/atualizado."); // Armazenamento Dados -
+                                                                                                // AVISO
         } catch (Exception e) {
             System.err.println("\n \n-----> OCORREU UM ERRO INESPERADO"); // error
             e.printStackTrace();
@@ -83,12 +87,10 @@ public class Pessoa {
         }
     }
 
-    
     public String gerarMatricula(String tipo) {
         // ANO + ID + CONTADOR
         // ID = Professor(20) ou Estudante(23)
 
-        
         // Ano atual
         Calendar cal = Calendar.getInstance();
         int ano = cal.get(Calendar.YEAR);
@@ -100,8 +102,8 @@ public class Pessoa {
 
         if (tipo.equals("estudante")) {
             id = 23;
-            contadorEstudante++;
-            return ano + Integer.toString(id) + Integer.toString(contadorEstudante);
+            Estudante.ultimo_contador++;
+            return ano + Integer.toString(id) + Integer.toString(Estudante.ultimo_contador);
 
         } else if (tipo.equals("docente")) {
             id = 20;

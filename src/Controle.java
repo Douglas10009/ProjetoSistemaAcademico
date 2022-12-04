@@ -3,7 +3,7 @@ import java.io.File;
 import java.io.FileReader;
 
 public class Controle {
-    static boolean jaRodado = false; //Verifica se o programa já foi rodado
+    static boolean jaRodado = false; // Verifica se o programa já foi rodado
 
     public void a() {
         // String matricula = Estudante.ListaEstudantes.get("111").getMatricula();
@@ -23,6 +23,7 @@ public class Controle {
             estudante.setCpf(valores[0]);
             estudante.setNome(valores[1]);
             estudante.setMatricula(valores[2]);
+            estudante.setUltimo_contador(Integer.parseInt(valores[3]));
             Estudante.ListaEstudantes.put(valores[0], estudante);
 
             linha = ler.readLine();
@@ -85,7 +86,7 @@ public class Controle {
         Estudante estudante = new Estudante();
         Pessoa pessoa = new Pessoa();
 
-        pessoa.cadastrarEstudante(estudante); //Pega o nome e o CPF
+        pessoa.cadastrarEstudante(estudante); // Pega o nome e o CPF
 
         String matricula = estudante.gerarMatricula("estudante");
         estudante.setMatricula(matricula);
