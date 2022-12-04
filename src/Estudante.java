@@ -1,49 +1,57 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Estudante {
+public class Estudante extends Pessoa {
 
-	String matricula, cpf, nome;
-	int periodo;
-	double boletim;
+	private String matricula, cpf, nome;
 	String tipo = "estudante";
-	Map<String, String> ListaEstudantes = new HashMap<String, String>(); // CPF - Chave, Nome - Valor
+	static int ultimo_contador = 0;
 
-	public void cadastrarEstudante() {
-		System.out.println("\n \n-----> Cadastrando estudante"); // Cadastrando Estudante - AVISO
-		Pessoa pessoa = new Pessoa();
+	static Map<String, Estudante> ListaEstudantes = new HashMap<String, Estudante>(); // CPF - Chave, Estudante - Para
+																						// acessar os outros dados
 
-		pessoa.cadastrarPessoa(); // Cadastra o estudante, como pessoa
-
-		this.ListaEstudantes.put(pessoa.getCpf(), pessoa.getNome());
-
-		System.out.printf("\n----> Cadastro do estudante %s, realizado com sucesso!", pessoa.getNome()); // Cadastro
-																											// Estudante
-																											// Completo
-																											// - AVISO
-		
-		String matricula = pessoa.gerarMatricula("docente");
-		Pessoa.armazenarDados("estudante", ListaEstudantes, matricula);
-
-		System.out.println("----> Para acessar o portal use as seguntes credenciais: "); // Credenciais Estudante-
-																							// AVISO
-		System.out.printf("\n - Matrícula: %s", matricula); // Login Matricula Estudante - AVISO
-		System.out.printf("\n - Senha: %s (Seu CPF) \n", pessoa.getCpf()); // Senha CPF Estudante - AVISO
-		System.out.println("\n-----> OBS: GUARDE ESSES DADOS, SÓ É POSSÍVEL O CADASTRO COM ESSAS INFORMAÇÕES"); // Alerta
-																												// -
-																												// AVISO
-	}
-
-	public void getDados() {
-		int contador = 0;
-		for (Map.Entry<String, String> Entry : this.ListaEstudantes.entrySet()) {
-			System.out.println("Estudante n° " + contador);
-			System.out.printf("\nNome: %s", Entry.getValue());
+	public static void getDados() { // LEMVBRAR DE TIRAR O STATIC
+		int contador = 1;
+		for (Map.Entry<String, Estudante> Entry : Estudante.ListaEstudantes.entrySet()) {
+			System.out.println("\n \nEstudante n° " + contador);
 			System.out.printf("\nCPF: %s", Entry.getKey());
+			System.out.printf("\nNome: %s", Entry.getValue().nome);
+			System.out.printf("\nMatricula: %s", Entry.getValue().matricula);
 			contador++;
 		}
 		// ListaEstudantes.forEach((k, v) -> System.out.printf("\n \nkey: %s | value:
 		// %s", k, v)); //Método 2 de mostrar dados
 	}
 
+	public String getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public int getUltimo_contador() {
+		return ultimo_contador;
+	}
+
+	public void setUltimo_contador(int contador) {
+		Estudante.ultimo_contador = contador;
+	}
 }

@@ -2,40 +2,98 @@ import java.util.Scanner;
 
 public class Menu {
 	public static void Cadastrar() {
-		//clear();
-		
+		// clear();
+
 		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("--------- SEJA BEM VINDE ---------");
+
+		System.out.println("\n \n--------- SEJA BEM VINDE ---------");
 		System.out.println("------ Sistema Acadêmico SA ------");
 		System.out.println("\n1 - Cadastrar estudante");
 		System.out.println("2 - Cadastrar Docente");
+		System.out.println("3 - Sair");
 		System.out.print("\nDigite sua escolha: ");
-		int opc = sc.nextInt();
-		sc.nextLine();
+		String opc = sc.next();
+		sc.nextLine(); // Para tirar o enter do buff
 
+		Controle c = new Controle();
 		switch (opc) {
-			case 1: // Cadastrar estudante
-				Estudante estudante = new Estudante();
-				estudante.cadastrarEstudante();
+			case "1": // Cadastrar estudante
+				c.CadastrarEstudante();
+
+				Estudante.getDados();
 
 				System.out.println("\n \n -----> Tempo para você guardar seus dados.");
+				System.out.println("");
 				barraProgressoLimpo(300);
 				break;
-			case 2: // Cadastrar Discente
+
+			case "2": // Cadastrar Discente
 				Docente docente = new Docente();
 				docente.cadastrarDocente();
 
 				System.out.println("\n \n -----> Tempo para você guardar seus dados.");
+				System.out.println("");
 				barraProgressoLimpo(300);
 				break;
+
+			case "3":
+				System.out.println("----> Saindo...");
+
 			default:
 				System.out.println("-----> Tente novamente, opção inválida..."); // AVISO
-				break;
 
 		}
+	}
 
-		sc.close();
+	public static void escolha_login_cadastro(){
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("\n------ Sistema Acadêmico SA ------");
+		System.out.println("-----> O que você deseja realizar hoje?");
+		System.out.println("\n1 - Cadastro");
+		System.out.println("2 - Login");
+		System.out.println("3 - Sair");
+		System.out.print("\nDigite sua escolha: ");
+		String opc = sc.next();
+		sc.nextLine(); // Para tirar o enter do buff
+		switch (opc) {
+			case "1": 
+			for (int i = 0; i < 4; i++) {
+				Menu.Cadastrar();
+			}
+				break;
+			case "2":
+				Menu.login();
+				break;
+		}
+	}
+
+	public static void login(){
+		Menu.UnderConstruction();
+	}
+
+	public static void UnderConstruction(){
+		System.out.println(
+			"""                                   
+
+
+
+						      #&&&                     &&&
+						****%%%%*****%%%*****%%%%*****%%%*****%%
+						***%%%*****%%%*****%%%%*****%%%*****%%%%
+						*%%%*****%%%%*****%%%*****%%%*****%%%%**
+						%%*****%%%%*****%%%*****%%%%****(%%%****
+						      #&&&                     &&&
+						      #&&&                     &&&
+						      #&&&                     &&&
+						      #&&&                     &&&
+						      #&&&                     &&&
+						     &&&&&&                   &&&&&&
+
+              
+		""");
+		System.out.println("\n-----> Ainda não há nada por aq, volte mais tarde...\n");
+
 	}
 
 	public static void progressPercentage(int remain, int total) {
@@ -59,7 +117,7 @@ public class Menu {
 		}
 	}
 
-	public static void barraProgressoLimpo (int tempo){
+	public static void barraProgressoLimpo(int tempo) {
 		for (int i = 0; i <= tempo; i = i + 20) {
 			progressPercentage(i, tempo);
 			try {

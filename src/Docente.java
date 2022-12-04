@@ -1,19 +1,19 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Docente {
+public class Docente extends Pessoa {
 
 	String matricula, cpf, nome;
 	String tipo = "docente";
-	Map<String, String> ListaDocentes = new HashMap<String, String>();
+	static Map<String, Docente> ListaDocentes = new HashMap<String, Docente>();
 
 	public void cadastrarDocente() {
 		System.out.println("\n \n-----> Cadastrando docente");
 		Pessoa pessoa = new Pessoa();
 
-		pessoa.cadastrarPessoa();// Cadastra o docente como pessoa
+		pessoa.cadastrarEstudante();// Cadastra o docente como pessoa
 
-		this.ListaDocentes.put(pessoa.getCpf(), pessoa.getNome());
+		Docente.ListaDocentes.put(pessoa.getCpf(), pessoa.getNome());
 
 		System.out.printf("\n----> Cadastro do docente %s, realizado com sucesso!", pessoa.getNome()); // Cadastro
 																										// Estudante
