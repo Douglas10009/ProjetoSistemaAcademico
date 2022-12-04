@@ -97,7 +97,6 @@ public class Pessoa {
 
         // Id da pessoa
         int id = 0;
-        int contadorEstudante = 0;
         int contadorDocente = 0;
 
         if (tipo.equals("estudante")) {
