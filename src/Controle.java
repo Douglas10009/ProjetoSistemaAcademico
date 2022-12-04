@@ -49,7 +49,7 @@ public class Controle {
         }
         ler_2.close();
 
-        System.out.println("\n----->Sucesso na leitura dos dados");
+        System.out.println("\n-----> Sucesso na leitura dos dados");
     }
 
     public static File VerificarPasta_Arquivo(String Nome_Pasta, String Nome_Arquivo) {

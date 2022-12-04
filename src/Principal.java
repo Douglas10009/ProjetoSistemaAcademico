@@ -16,12 +16,15 @@ public class Principal {
 
 		Controle.lerArquivo(); //Lê os arquivos e coloca no HashMap
 
+		//Verifica se é a primeira vez que o programape executado
 		if (Controle.jaRodado) {
 			Menu.escolha_login_cadastro();
 		} else {
-			while (Menu.Cadastrar()) {}
+			// for (int i = 0; i < 4; i++) {
+				Menu.Cadastrar();
+			// }
 		}
-		
+
   		Pessoa.armazenarDadosEstudante(); // Escreve os dados no arquivo
 
 		// Só pra eu me organizar --
