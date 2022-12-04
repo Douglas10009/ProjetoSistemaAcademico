@@ -16,11 +16,11 @@ public class Controle {
 
         BufferedReader ler = new BufferedReader(new FileReader(arq));
         String linha = ler.readLine(); // Primeira linha a ser lida
-        Estudante estudante = new Estudante();
 
         while (linha != null) {
             String[] valores = linha.split(";");
 
+            Estudante estudante = new Estudante();
             estudante.setCpf(valores[0]);
             estudante.setNome(valores[1]);
             estudante.setMatricula(valores[2]);
