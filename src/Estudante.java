@@ -4,37 +4,45 @@ import java.util.Scanner;
 
 public class Estudante extends Pessoa{
 
-	String matricula, cpf, nome;
-
-	int periodo;
-	double boletim;
+	private String matricula, cpf, nome;	
 	String tipo = "estudante";
-	static Map<String, Estudante> ListaEstudantes = new HashMap<String, Estudante>(); // CPF - Chave, Nome - Valor
+	static Map<String, Estudante> ListaEstudantes = new HashMap<String, Estudante>(); // CPF - Chave, Estudante - Para acessar os outros dados
 
-	public Estudante(){ //Colocar isso ak na classe pessoa
-		Scanner sc = new Scanner(System.in);
-
-        System.out.print("Digite seu nome: ");
-        String nome = sc.nextLine(); // TODO Tratar exceções
-        this.nome = nome;
-        // pessoa.setNome(nome);
-
-        System.out.print("Digite seu cpf: ");
-        String cpf = sc.nextLine(); // TODO Tratar exceções
-        // pessoa.BuscarCPF(cpf);
-        this.cpf = cpf;
-	}
 
 	public static void getDados() { //LEMVBRAR DE TIRAR O STATIC
-		int contador = 0;
+		int contador = 1;
 		for (Map.Entry<String, Estudante> Entry : Estudante.ListaEstudantes.entrySet()) {
-			System.out.println("Estudante n° " + contador);
+			System.out.println("\n \nEstudante n° " + contador);
+			System.out.printf("\nCPF: %s", Entry.getKey());
 			System.out.printf("\nNome: %s", Entry.getValue().nome);
-			// System.out.printf("\nCPF: %s", Entry.getKey());
+			System.out.printf("\nMatricula: %s", Entry.getValue().matricula);
 			contador++;
 		}
 		// ListaEstudantes.forEach((k, v) -> System.out.printf("\n \nkey: %s | value:
 		// %s", k, v)); //Método 2 de mostrar dados
 	}
 
+	public String getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 }

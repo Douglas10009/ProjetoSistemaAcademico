@@ -1,5 +1,5 @@
 
-// O aluno se inscreve na instituicao, dando o nome e CPF, e recebe o matricula e senha
+// O aluno se inscreve na instituicao, dando o nome e CPF, e recebe o matricula 
 //Modelo de aviso: "-----> ..."
 
 public class Principal {
@@ -14,11 +14,15 @@ public class Principal {
 		// Antes de mostrar a tela de BemVInde, tem que verificar se o programa já foi
 		// rodado antes (/Banco de dados)
 
-		Controle.lerArquivo();
-		while (true) {
-			Menu.Cadastrar();
+		Controle.lerArquivo(); //Lê os arquivos e coloca no HashMap
 
+		if (Controle.jaRodado) {
+			Menu.escolha_login_cadastro();
+		} else {
+			while (Menu.Cadastrar()) {}
 		}
+		
+  		Pessoa.armazenarDadosEstudante(); // Escreve os dados no arquivo
 
 		// Só pra eu me organizar --
 		// Menu.login();
