@@ -132,13 +132,13 @@ public class Pessoa {
 
 }
 
-// Verificar os estudantes no arquivo e colcar no HASHMAP
-// Colocar o <CPF, Estudante> HashMap, para acessar os outros dados do estudante
+// Verificar os estudantes no arquivo e colcar no HASHMAP 🆗
+// Colocar o <CPF, Estudante> HashMap, para acessar os outros dados do estudante 🆗
 
 // Instance of, Pessoa new Estudante - Obrigatório ter para funcionar o código
 // abaixo
 // if(x instanceof Estudante) - Verificar se o contrutor é estudante
 
 // Criar uma classe controle com o cadastro, remover e buscar separados
-// Salvar o HashMap antes de sair do programa
-// HashMap estático
+// Salvar o HashMap antes de sair do programa 🆗
+// HashMap estático 🆗
