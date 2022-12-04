@@ -17,6 +17,7 @@ public class Controle {
         BufferedReader ler = new BufferedReader(new FileReader(arq));
         String linha = ler.readLine(); // Primeira linha a ser lida
         Estudante estudante = new Estudante();
+
         while (linha != null) {
             String[] valores = linha.split(";");
 
@@ -95,7 +96,7 @@ public class Controle {
                                                                                                             // Estudante
                                                                                                             // Completo
                                                                                                             // - AVISO
-        System.out.println("----> Para acessar o portal use as seguntes credenciais: "); // Credenciais Estudante- AVISO
+        System.out.println("\n----> Para acessar o portal use as seguntes credenciais: "); // Credenciais Estudante- AVISO
         System.out.printf("\n - Matrícula: %s", estudante.getMatricula()); // Login Matricula Estudante - AVISO
         System.out.printf("\n - Senha: %s (Seu CPF) \n", estudante.getCpf()); // Senha CPF Estudante - AVISO
         System.out.print("\n-----> OBS: GUARDE ESSES DADOS, SÓ É POSSÍVEL O CADASTRO COM ESSAS INFORMAÇÕES"); // Alerta

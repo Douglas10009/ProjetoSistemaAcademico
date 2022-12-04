@@ -1,8 +1,7 @@
 import java.util.Scanner;
 
 public class Menu {
-	public static boolean Cadastrar() {
-		boolean isRodando = true;
+	public static void Cadastrar() {
 		// clear();
 
 		Scanner sc = new Scanner(System.in);
@@ -39,14 +38,11 @@ public class Menu {
 
 			case "3":
 				System.out.println("----> Saindo...");
-				return isRodando = false;
 
 			default:
 				System.out.println("-----> Tente novamente, opção inválida..."); // AVISO
-				return isRodando = false;
 
 		}
-		return isRodando = true;
 	}
 
 	public static void escolha_login_cadastro(){
@@ -62,7 +58,9 @@ public class Menu {
 		sc.nextLine(); // Para tirar o enter do buff
 		switch (opc) {
 			case "1": 
+			for (int i = 0; i < 4; i++) {
 				Menu.Cadastrar();
+			}
 				break;
 			case "2":
 				Menu.login();
