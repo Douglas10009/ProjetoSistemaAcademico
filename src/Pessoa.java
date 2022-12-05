@@ -31,6 +31,28 @@ public class Pessoa {
 
     }
 
+    public void cadastrarDocente(Docente d) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Digite seu nome: ");
+        String nome = sc.nextLine(); // TODO Tratar exceções
+        d.setNome(nome); // Pode existir nomes iguais
+
+        while (Estudante.ListaEstudantes.get(cpf) == null) {
+            System.out.print("Digite seu cpf: ");
+            String cpf = sc.nextLine(); // TODO Tratar exceções
+
+            // Verifica se o CPF já existe
+            if (Docente.ListaDocentes.get(cpf) == null) {
+                d.setCpf(cpf);
+                break;
+            } else {
+                System.out.println("\n----> CPF já existe, tente novamente...");
+            }
+        }
+
+    }
+
     // public boolean BuscarCPF(String CPF){
     // BufferedReader ler = new BufferedReader(new FileReader(null))
     // }
@@ -62,24 +84,25 @@ public class Pessoa {
         }
     }
 
-    public static void armazenarDadosDocente(Map<String, Docente> ListaDocente, String matricula) {
+    public static void armazenarDadosDocente() {
         // Cria a pasta e o arquivo de banco de dados, se não já estiver criado.
         File arq = Controle.VerificarPasta_Arquivo("BancoDeDados", "docente.txt");
 
         try {
             PrintWriter gravar = new PrintWriter(new FileWriter(arq, true)); // O true é para ele escrever ao inves de
                                                                              // sobreescrever
-            for (Map.Entry<String, Docente> Entry : ListaDocente.entrySet()) {
+            for (Map.Entry<String, Docente> Entry : Docente.ListaDocentes.entrySet()) {
                 gravar.append(Entry.getKey()); // CPF
                 gravar.append(";");
                 gravar.append(Entry.getValue().getNome()); // Nome
                 gravar.append(";");
-                // gravar.append(Entry.getValue().getMatricula()); // Matricula //TO-DO
+                gravar.append(Entry.getValue().getMatricula()); // Matricula //TO-DO
+                gravar.append(Integer.toString(Entry.getValue().getUltimo_contador())); // Ultimo Contador
                 gravar.append(";");
                 gravar.append("\n");
             }
             gravar.close();
-            System.out.println("\n----> Arquivo de armazenamento de dados criado."); // Armazenamento Dados - AVISO
+            System.out.println("\n----> Arquivo de armazenamento de dados criado/atualizado."); // Armazenamento Dados - AVISO
         } catch (Exception e) {
             System.err.println("\n \n-----> OCORREU UM ERRO INESPERADO"); // error
             e.printStackTrace();
@@ -105,8 +128,8 @@ public class Pessoa {
 
         } else if (tipo.equals("docente")) {
             id = 20;
-            contadorDocente++;
-            return ano + Integer.toString(id) + Integer.toString(contadorDocente);
+            Docente.ultimo_contador++;
+            return ano + Integer.toString(id) + Integer.toString(Docente.ultimo_contador);
 
         } else {
             return null;

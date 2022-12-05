@@ -9,11 +9,12 @@ public class Controle {
         // String matricula = Estudante.ListaEstudantes.get("111").getMatricula();
     }
 
-    public static void lerArquivo() throws Exception { // Armazena os dados das pessoas que estão no arquivo e colocam
-                                                       // no HashMap
-        // Armazena os dados do estudante
-        File arq = Controle.VerificarPasta_Arquivo("BancoDeDados", "estudante.txt");
 
+    //Armazena os dados das pessoas que estão no arquivo e colocam no HashMap
+    public static void lerArquivo() throws Exception {
+
+        // Armazena os dados do estudante no HashMap
+        File arq = Controle.VerificarPasta_Arquivo("BancoDeDados", "estudante.txt");
         BufferedReader ler = new BufferedReader(new FileReader(arq));
         String linha = ler.readLine(); // Primeira linha a ser lida
 
@@ -31,19 +32,19 @@ public class Controle {
         }
         ler.close();
 
-        // Armazena os dados do docente
+        // Armazena os dados do docente NO hASHmAP
         File arq_2 = Controle.VerificarPasta_Arquivo("BancoDeDados", "docente.txt");
-
         BufferedReader ler_2 = new BufferedReader(new FileReader(arq_2));
         String linha_2 = ler_2.readLine(); // Primeira linha a ser lida
 
-        Docente docente = new Docente();
         while (linha_2 != null) {
             String[] valores = linha_2.split(";");
 
-            docente.cpf = valores[0];
-            docente.nome = valores[1];
-            docente.matricula = valores[2];
+            Docente docente = new Docente();
+            docente.setCpf(valores[0]);
+            docente.setNome(valores[1]);
+            docente.setMatricula(valores[2]);
+            docente.setUltimo_contador(Integer.parseInt(valores[3]));
             Docente.ListaDocentes.put(valores[0], docente);
 
             linha_2 = ler_2.readLine();
@@ -104,4 +105,54 @@ public class Controle {
 
         Estudante.ListaEstudantes.put(estudante.getCpf(), estudante); // Coloca os dados na hashmap
     }
+
+    public void CadastrarDocente() {
+        System.out.println("\n \n-----> Cadastrando docente"); // Cadastrando docente - AVISO
+
+        Docente docente = new Docente();
+        Pessoa pessoa = new Pessoa();
+
+        pessoa.cadastrarDocente(docente); // Pega o nome e o CPF
+
+        String matricula = docente.gerarMatricula("docente");
+        docente.setMatricula(matricula);
+
+        System.out.printf("\n----> Cadastro do docente %s, realizado com sucesso!", docente.getNome()); // Cadastro
+                                                                                                            // Docente
+                                                                                                            // Completo
+                                                                                                            // - AVISO
+        System.out.println("\n----> Para acessar o portal use as seguntes credenciais: "); // Credenciais Docente- AVISO
+        System.out.printf("\n - Matrícula: %s", docente.getMatricula()); // Login Matricula Docente - AVISO
+        System.out.printf("\n - Senha: %s (Seu CPF) \n", docente.getCpf()); // Senha CPF Docente - AVISO
+        System.out.print("\n-----> OBS: GUARDE ESSES DADOS, SÓ É POSSÍVEL O CADASTRO COM ESSAS INFORMAÇÕES"); // Alerta
+                                                                                                              // - AVISO
+
+        Docente.ListaDocentes.put(docente.getCpf(), docente); // Coloca os dados na hashmap
+    }
 }
+
+
+// public void cadastrarDocente() {
+//     System.out.println("\n \n-----> Cadastrando docente");
+//     Pessoa pessoa = new Pessoa();
+
+//     pessoa.cadastrarEstudante();// Cadastra o docente como pessoa
+
+//     Docente.ListaDocentes.put(pessoa.getCpf(), pessoa.getNome());
+
+//     System.out.printf("\n----> Cadastro do docente %s, realizado com sucesso!", pessoa.getNome()); // Cadastro
+//                                                                                                     // Estudante
+//                                                                                                     // Completo
+//                                                                                                     // - AVISO
+
+//     String matricula = pessoa.gerarMatricula("docente");
+//     Pessoa.armazenarDados("docente", ListaDocentes, matricula);
+
+//     System.out.println("----> Para acessar o portal use as seguntes credenciais: "); // Credenciais Estudante-
+//                                                                                         // AVISO
+//     System.out.printf("\n - Matrícula: %s", matricula); // Login Matricula Estudante - AVISO
+//     System.out.printf("\n - Senha: %s (Seu CPF) \n", pessoa.getCpf()); // Senha CPF Estudante - AVISO
+//     System.out.println("\n-----> OBS: GUARDE ESSES DADOS, SÓ É POSSÍVEL O CADASTRO COM ESSAS INFORMAÇÕES"); // Alerta
+//                                                                                                             // -
+//                                                                                                             // AVISO
+// }

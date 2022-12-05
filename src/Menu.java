@@ -2,14 +2,14 @@ import java.util.Scanner;
 
 public class Menu {
 	public static void Cadastrar() {
-		// clear();
+		// clear(); //Adicionar quando terminar o debug
 
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("\n \n--------- SEJA BEM VINDE ---------");
 		System.out.println("------ Sistema Acadêmico SA ------");
 		System.out.println("\n1 - Cadastrar estudante");
-		System.out.println("2 - Cadastrar Docente");
+		System.out.println("2 - Cadastrar docente");
 		System.out.println("3 - Sair");
 		System.out.print("\nDigite sua escolha: ");
 		String opc = sc.next();
@@ -20,16 +20,17 @@ public class Menu {
 			case "1": // Cadastrar estudante
 				c.CadastrarEstudante();
 
-				Estudante.getDados();
+				Estudante.getDados(); //DEBUG
 
 				System.out.println("\n \n -----> Tempo para você guardar seus dados.");
 				System.out.println("");
 				barraProgressoLimpo(300);
 				break;
 
-			case "2": // Cadastrar Discente
-				Docente docente = new Docente();
-				docente.cadastrarDocente();
+			case "2": // Cadastrar Docente
+				c.CadastrarDocente();
+
+				Docente.getDados(); //DEBUG
 
 				System.out.println("\n \n -----> Tempo para você guardar seus dados.");
 				System.out.println("");
@@ -45,7 +46,7 @@ public class Menu {
 		}
 	}
 
-	public static void escolha_login_cadastro(){
+	public static void escolha_login_cadastro() {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("\n------ Sistema Acadêmico SA ------");
@@ -57,10 +58,10 @@ public class Menu {
 		String opc = sc.next();
 		sc.nextLine(); // Para tirar o enter do buff
 		switch (opc) {
-			case "1": 
-			for (int i = 0; i < 4; i++) {
-				Menu.Cadastrar();
-			}
+			case "1":
+				for (int i = 0; i < 4; i++) {
+					Menu.Cadastrar();
+				}
 				break;
 			case "2":
 				Menu.login();
@@ -68,30 +69,30 @@ public class Menu {
 		}
 	}
 
-	public static void login(){
+	public static void login() {
 		Menu.UnderConstruction();
 	}
 
-	public static void UnderConstruction(){
+	public static void UnderConstruction() {
 		System.out.println(
-			"""                                   
+				"""
 
 
 
-						      #&&&                     &&&
-						****%%%%*****%%%*****%%%%*****%%%*****%%
-						***%%%*****%%%*****%%%%*****%%%*****%%%%
-						*%%%*****%%%%*****%%%*****%%%*****%%%%**
-						%%*****%%%%*****%%%*****%%%%****(%%%****
-						      #&&&                     &&&
-						      #&&&                     &&&
-						      #&&&                     &&&
-						      #&&&                     &&&
-						      #&&&                     &&&
-						     &&&&&&                   &&&&&&
+										      #&&&                     &&&
+										****%%%%*****%%%*****%%%%*****%%%*****%%
+										***%%%*****%%%*****%%%%*****%%%*****%%%%
+										*%%%*****%%%%*****%%%*****%%%*****%%%%**
+										%%*****%%%%*****%%%*****%%%%****(%%%****
+										      #&&&                     &&&
+										      #&&&                     &&&
+										      #&&&                     &&&
+										      #&&&                     &&&
+										      #&&&                     &&&
+										     &&&&&&                   &&&&&&
 
-              
-		""");
+
+						""");
 		System.out.println("\n-----> Ainda não há nada por aq, volte mais tarde...\n");
 
 	}

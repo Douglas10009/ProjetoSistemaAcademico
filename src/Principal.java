@@ -23,7 +23,8 @@ public class Principal {
 			Menu.Cadastrar();
 		}
 
-  		Pessoa.armazenarDadosEstudante(); // Escreve os dados no arquivo
+  		Pessoa.armazenarDadosEstudante(); // Escreve os dados no arquivo do estudante
+		Pessoa.armazenarDadosDocente();  // Escreve os dados no arquivo do docente
 
 		// Só pra eu me organizar --
 		// Menu.login();
