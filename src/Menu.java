@@ -7,8 +7,8 @@ public class Menu {
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("--------- SEJA BEM VINDE ---------");
-		System.out.println("------ Sistema Acadêmico SA ------");
-		System.out.println("\n1 - Cadastrar estudante");
+		System.out.println("------ Sistema Acadêmico RESEBA ------");
+		System.out.println("\n1 - Cadastrar Estudante");
 		System.out.println("2 - Cadastrar Docente");
 		System.out.print("\nDigite sua escolha: ");
 		int opc = sc.nextInt();
