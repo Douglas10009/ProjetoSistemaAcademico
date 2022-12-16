@@ -70,7 +70,15 @@ public class Menu {
 	}
 
 	public static void login() {
-		Menu.UnderConstruction();
+
+		System.out.println("\n------ Sistema Acadêmico SA ------");
+		System.out.println("-----> Login ------");
+
+		System.out.print("\nDigite seu número de matrícula ");
+		String usuario = sc.next();
+
+		System.out.print("\nDigite sua senha: ");
+		String senha = sc.next();
 	}
 
 	public static void UnderConstruction() {
