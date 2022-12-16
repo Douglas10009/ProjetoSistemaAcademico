@@ -83,7 +83,9 @@ public class Menu {
 		System.out.print("\nDigite sua senha: ");
 		String senha = sc.next();
 
-		if(Estudante.ListaEstudantes.get(cpf))
+		if(Estudante.ListaEstudantes.containsKey(senha)){
+
+		}
 
 
 

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class ArquivoTeste {
 
-    
+
     public static void main(String[] args) {
         // Map<String, String> teste = new HashMap<String, String>();
         // for (int i = 0; i < 4; i++) {
@@ -22,6 +22,10 @@ public class ArquivoTeste {
         System.out.printf("hi, %s", A);
         System.out.println(" ");
         System.out.println(i);
+
+        if (null) {
+            System.out.println("fdddd -------");
+        }
 
     }
 }
