@@ -6,12 +6,13 @@ public class Menu {
 
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("\n \n---------👋SEJA BEM VINDE👋 ---------");
-		System.out.println("------  Sistema Acadêmico SA ------");
-		System.out.println("\n1 - ✏️Cadastrar estudante");
-		System.out.println("2 - 🖊️Cadastrar docente");
-		System.out.println("3 - 💬Sair");
-		System.out.print("\n📝Digite sua escolha: ");
+		System.out.println("\n \n        👋 SEJA BEM VINDE 👋");
+		System.out.println(" ");
+		System.out.println("      𝓢𝓲𝓼𝓽𝓮𝓶𝓪 𝓐𝓬𝓪𝓭𝓮𝓶𝓲𝓬𝓸 𝓡𝓮𝓼𝓮𝓫𝓪 ");
+		System.out.println("\n1 - ✏️  Cadastrar estudante");
+		System.out.println("2 - 🖊️  Cadastrar docente");
+		System.out.println("3 - 💬  Sair");
+		System.out.print("\n📝  Digite sua escolha: ");
 		String opc = sc.next();
 		sc.nextLine(); // Para tirar o enter do buff
 
@@ -22,7 +23,7 @@ public class Menu {
 
 				Estudante.getDados(); //DEBUG
 
-				System.out.println("\n \n -----> Tempo para você guardar seus dados.");
+				System.out.println("\n \n -----> 🕛 Tempo para você guardar seus dados.");
 				System.out.println("");
 				barraProgressoLimpo(300);
 				break;
@@ -38,10 +39,11 @@ public class Menu {
 				break;
 
 			case "3":
-				System.out.println("----> Saindo...");
+				System.out.println("----> 🏃  Saindo...");
+				break;
 
 			default:
-				System.out.println("-----> Tente novamente, opção inválida..."); // AVISO
+				System.out.println("-----> ❌ Tente novamente, opção inválida..."); // AVISO
 
 		}
 	}
@@ -49,12 +51,13 @@ public class Menu {
 	public static void escolha_login_cadastro() {
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("\n------ Sistema Acadêmico SA ------");
-		System.out.println("-----> O que você deseja realizar hoje?");
-		System.out.println("\n1 - Cadastro");
-		System.out.println("2 - Login");
-		System.out.println("3 - Sair");
-		System.out.print("\nDigite sua escolha: ");
+		System.out.println("\n \n        👋 SEJA BEM VINDE 👋");
+		System.out.println(" ");
+		System.out.println("      𝓢𝓲𝓼𝓽𝓮𝓶𝓪 𝓐𝓬𝓪𝓭𝓮𝓶𝓲𝓬𝓸 𝓡𝓮𝓼𝓮𝓫𝓪 ");
+		System.out.println("\n1 - ✏️  Cadastrar estudante");
+		System.out.println("2 - 🖊️  Cadastrar docente");
+		System.out.println("3 - 💬  Sair");
+		System.out.print("\n📝  Digite sua escolha: ");
 		String opc = sc.next();
 		sc.nextLine(); // Para tirar o enter do buff
 		switch (opc) {
