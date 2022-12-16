@@ -74,6 +74,8 @@ public class Menu {
 
 	public static void login() {
 
+        Scanner sc = new Scanner(System.in);
+
 		System.out.println("\n------ Sistema Acadêmico SA ------");
 		System.out.println("-----> Login ------");
 
