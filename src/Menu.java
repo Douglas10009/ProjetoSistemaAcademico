@@ -6,12 +6,12 @@ public class Menu {
 
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("\n \n--------- SEJA BEM VINDE ---------");
-		System.out.println("------ :pencil2: Sistema Acadêmico SA ------");
+		System.out.println("\n \n---------👋SEJA BEM VINDE👋 ---------");
+		System.out.println("------  Sistema Acadêmico SA ------");
 		System.out.println("\n1 - ✏️Cadastrar estudante");
 		System.out.println("2 - 🖊️Cadastrar docente");
-		System.out.println("3 - Sair");
-		System.out.print("\nDigite sua escolha: ");
+		System.out.println("3 - 💬Sair");
+		System.out.print("\n📝Digite sua escolha: ");
 		String opc = sc.next();
 		sc.nextLine(); // Para tirar o enter do buff
 
@@ -75,24 +75,7 @@ public class Menu {
 
 	public static void UnderConstruction() {
 		System.out.println(
-				"""
-
-
-
-										      #&&&                     &&&
-										****%%%%*****%%%*****%%%%*****%%%*****%%
-										***%%%*****%%%*****%%%%*****%%%*****%%%%
-										*%%%*****%%%%*****%%%*****%%%*****%%%%**
-										%%*****%%%%*****%%%*****%%%%****(%%%****
-										      #&&&                     &&&
-										      #&&&                     &&&
-										      #&&&                     &&&
-										      #&&&                     &&&
-										      #&&&                     &&&
-										     &&&&&&                   &&&&&&
-
-
-						""");
+				);
 		System.out.println("\n-----> Ainda não há nada por aq, volte mais tarde...\n");
 
 	}
