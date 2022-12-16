@@ -8,8 +8,8 @@ public class Menu {
 
 		System.out.println("\n \n--------- SEJA BEM VINDE ---------");
 		System.out.println("------ Sistema Acadêmico SA ------");
-		System.out.println("\n1 - Cadastrar estudante");
-		System.out.println("2 - Cadastrar docente");
+		System.out.println("\n1 - ✏️Cadastrar estudante");
+		System.out.println("2 - 🖊️Cadastrar docente");
 		System.out.println("3 - Sair");
 		System.out.print("\nDigite sua escolha: ");
 		String opc = sc.next();
