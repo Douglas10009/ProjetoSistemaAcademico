@@ -7,7 +7,7 @@ public class Principal {
 	public static final String ANSI_YELLOW = "\u001B[33m";
 	public static final String ANSI_RED = "\u001B[31m";
 	public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
-	public static final St ring ANSI_BOLD = "\u001B[1m";
+	public static final String ANSI_BOLD = "\u001B[1m";
 	public static final String ANSI_ITALIC = "\u001B[3m";
 
 	public static void main(String[] args) throws Exception {
