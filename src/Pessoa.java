@@ -109,32 +109,7 @@ public class Pessoa {
         }
     }
 
-    public String gerarMatricula(String tipo) {
-        // ANO + ID + CONTADOR
-        // ID = Professor(20) ou Estudante(23)
-
-        // Ano atual
-        Calendar cal = Calendar.getInstance();
-        int ano = cal.get(Calendar.YEAR);
-
-        // Id da pessoa
-        int id = 0;
-        int contadorDocente = 0;
-
-        if (tipo.equals("estudante")) {
-            id = 23;
-            Estudante.ultimo_contador++;
-            return ano + Integer.toString(id) + Integer.toString(Estudante.ultimo_contador);
-
-        } else if (tipo.equals("docente")) {
-            id = 20;
-            Docente.ultimo_contador++;
-            return ano + Integer.toString(id) + Integer.toString(Docente.ultimo_contador);
-
-        } else {
-            return null;
-        }
-    }
+    
 
     public void setNome(String nome) {
         this.nome = nome;
