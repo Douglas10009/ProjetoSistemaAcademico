@@ -92,6 +92,29 @@ public class Menu {
 
 	}
 
+	public static void telaDocente(){
+		
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("\n------ Sistema Acadêmico SA ------");
+		System.out.println("-----> Menu do Docente ------");
+
+		System.out.println("\n-----> O que você desej fazer agora? ");
+		System.out.println("1 - Cadastrar disciplina");
+		System.out.println("2 - ....");
+		System.out.println("-----> Digite a sua escolha: ");
+		
+		int escolha = sc.nextInt(); //TODO Tratar excessões
+		switch (escolha) {
+			case 1:
+				// Controle.CadastrarDisciplina();
+				break;
+		
+			default:
+				break;
+		}
+	}
+
 	public static void UnderConstruction() {
 		System.out.println("""
 								      #&&&                     &&&
