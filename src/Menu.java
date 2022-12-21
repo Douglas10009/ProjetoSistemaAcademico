@@ -54,17 +54,16 @@ public class Menu {
 		System.out.println("\n \n        👋 SEJA BEM VINDE 👋");
 		System.out.println(" ");
 		System.out.println("      𝓢𝓲𝓼𝓽𝓮𝓶𝓪 𝓐𝓬𝓪𝓭𝓮𝓶𝓲𝓬𝓸 𝓡𝓮𝓼𝓮𝓫𝓪 ");
-		System.out.println("\n1 - ✏️  Cadastrar estudante");
-		System.out.println("2 - 🖊️  Cadastrar docente");
+		System.out.println("\n1 - ✏️  Cadastrar");
+		System.out.println("2 - 🖊️  Login");
 		System.out.println("3 - 💬  Sair");
 		System.out.print("\n📝  Digite sua escolha: ");
 		String opc = sc.next();
 		sc.nextLine(); // Para tirar o enter do buff
+
 		switch (opc) {
 			case "1":
-				for (int i = 0; i < 4; i++) {
-					Menu.Cadastrar();
-				}
+				Menu.Cadastrar();
 				break;
 			case "2":
 				Menu.login();
@@ -94,18 +93,18 @@ public class Menu {
 	}
 
 	public static void UnderConstruction() {
-		// System.out.println("""
-		// 						      #&&&                     &&&
-		// 						****%%%%*****%%%*****%%%%*****%%%*****%%
-		// 						***%%%*****%%%*****%%%%*****%%%*****%%%%
-		// 						*%%%*****%%%%*****%%%*****%%%*****%%%%**
-		// 						%%*****%%%%*****%%%*****%%%%****(%%%****
-		// 						      #&&&                     &&&
-		// 						      #&&&                     &&&
-		// 						      #&&&                     &&&
-		// 						      #&&&                     &&&
-		// 						      #&&&                     &&&
-		// 						     &&&&&&                   &&&&&&""");
+		System.out.println("""
+								      #&&&                     &&&
+								****%%%%*****%%%*****%%%%*****%%%*****%%
+								***%%%*****%%%*****%%%%*****%%%*****%%%%
+								*%%%*****%%%%*****%%%*****%%%*****%%%%**
+								%%*****%%%%*****%%%*****%%%%****(%%%****
+								      #&&&                     &&&
+								      #&&&                     &&&
+								      #&&&                     &&&
+								      #&&&                     &&&
+								      #&&&                     &&&
+								     &&&&&&                   &&&&&&""");
 		System.out.println("\n-----> Ainda não há nada por aq, volte mais tarde...\n");
 
 	}
