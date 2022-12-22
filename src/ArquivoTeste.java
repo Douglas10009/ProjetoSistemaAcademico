@@ -24,12 +24,33 @@ public class ArquivoTeste {
 
         if (Estudante.ListaEstudantes.containsKey(senha)) { //Verifica o CPF no HashMap estudante
             //Verificar matricula do estudante
-        
-        } else if (){ //Verifica o CPF no HashMap docente
-            //Verificar a matricula do docente
-        } else {
-            System.out.println("Login ou senha inválidos!");
-        }
+            
+            String matricula_estudante = Estudante.ListaEstudantes.get(senha).getMatricula();
+           
 
+            if ( usuario.equals(matricula_estudante)) {
+                
+                System.out.println("Usuário logado");
+            } else {
+                System.out.println("Esse usuário/n° de matricula não está cadastrado");
+            }
+
+           
+        } else if (Docente.ListaDocentes.containsKey(senha)){ //Verifica o CPF no HashMap docente
+            //Verificar a matricula do docente
+
+            String matricula_docente = Docente.ListaDocentes.get(senha).getMatricula();
+            
+            if ( usuario.equals(matricula_docente)) {
+                
+                System.out.println("Usuário logado");
+            }else{
+                    System.out.println("Esse usuário/n° de matricula não está cadastrado");
+                }
+                
+        } else {
+            System.out.println("senha inválida!");
+        }
+    }
     }
 }
