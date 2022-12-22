@@ -75,26 +75,46 @@ public class Menu {
 	}
 
 	public static void Login() {
-
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("\n------ Sistema Acadêmico SA ------");
-		System.out.println("-----> Login ------");
+		System.out.println("-----> Login ");
 
-		System.out.print("\nDigite seu número de matrícula ");
-		String usuario = sc.next();
+		System.out.print("\nDigite seu número de matrícula: ");
+		String usuario = sc.next(); // Matricula
+		System.out.print("Digite sua senha: ");
+		String senha = sc.next(); // Cpf
 
-		System.out.print("\nDigite sua senha: ");
-		String senha = sc.next();
+		System.out.println("\n");
 
-		if (Estudante.ListaEstudantes.containsKey(senha)) {
+		if (Estudante.ListaEstudantes.containsKey(senha)) { // Verifica o CPF no HashMap estudante
+			// Verificar matricula do estudante
+			String matricula_estudante = Estudante.ListaEstudantes.get(senha).getMatricula();
 
+			if (usuario.equals(matricula_estudante)) {
+				System.out.println("Olá " + Estudante.ListaEstudantes.get(senha).getNome() + "! Usuário logado");
+			} else {
+				System.out.println("Esse usuário/n° de matricula não está cadastrado");
+			}
+
+		} else if (Docente.ListaDocentes.containsKey(senha)) { // Verifica o CPF no HashMap docente
+			// Verificar a matricula do docente
+			String matricula_docente = Docente.ListaDocentes.get(senha).getMatricula();
+
+			if (usuario.equals(matricula_docente)) {
+				System.out.println("Olá " + Docente.ListaDocentes.get(senha).getNome() + "! Usuário logado");
+
+			} else {
+				System.out.println("Esse usuário/n° de matricula não está cadastrado");
+			}
+
+		} else {
+			System.out.println("Senha inválida!");
 		}
 
 	}
 
 	public static void TelaDocente() {
-
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("\n------ Sistema Acadêmico SA ------");

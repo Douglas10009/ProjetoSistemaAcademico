@@ -20,7 +20,8 @@ public class Principal {
 		if (Controle.jaRodado) {
 			Menu.escolha_login_cadastro();
 
-			Menu.TelaDocente(); //DEGUB
+			// Menu.TelaDocente(); //DEGUB
+			Menu.Login();
 
 		} else {
 			while (Menu.isAcabado) {
