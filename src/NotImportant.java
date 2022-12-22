@@ -26,5 +26,29 @@ public class NotImportant {
                 e.printStackTrace();
             }
         }
+        
+        
+        public static void login() {
+
+        Scanner sc = new Scanner(System.in);
+
+		System.out.println("\n------ Sistema Acadêmico SA ------");
+		System.out.println("-----> Login ------");
+
+		System.out.print("\nDigite seu número de matrícula ");
+		String usuario = sc.next();
+
+		System.out.print("\nDigite sua senha: ");
+		String senha = sc.next();
+
+		if(Estudante.ListaEstudantes.get("111").getcpf();== null){
+            
+            System.out.printf("Usuário logado com sucesso.");
+        }else{
+            System.out.println("Login ou senha inválidos!");
+        }
+		}
+
+
     }
 }
