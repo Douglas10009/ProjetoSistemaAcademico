@@ -157,6 +157,10 @@ public class Controle {
             return null;
         }
     }
+
+    public static void CadastrarDisciplina(){
+        
+    }
 }
 
 

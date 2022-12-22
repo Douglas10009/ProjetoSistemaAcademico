@@ -4,6 +4,14 @@ import java.io.PrintWriter;
 import java.util.Map;
 import java.util.Scanner;
 
+
+/*
+ * -- Funções da classe --
+ * Classe para mostrar a parte do design e a parte mais abstrata das classes
+ * 
+ */
+
+
 public class Pessoa {
     String nome = "";
     String cpf = "";
@@ -51,10 +59,6 @@ public class Pessoa {
         }
 
     }
-
-    // public boolean BuscarCPF(String CPF){
-    // BufferedReader ler = new BufferedReader(new FileReader(null))
-    // }
 
     public static void armazenarDadosEstudante() {
         // Cria a pasta e o arquivo de banco de dados, se não já estiver criado.

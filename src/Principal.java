@@ -14,24 +14,26 @@ public class Principal {
 		// Antes de mostrar a tela de BemVInde, tem que verificar se o programa já foi
 		// rodado antes (/Banco de dados)
 
-		Controle.lerArquivo(); //Lê os arquivos e coloca no HashMap
+		Controle.lerArquivo(); // Lê os arquivos e coloca no HashMap
 
-		//Verifica se é a primeira vez que o programape executado
+		// Verifica se é a primeira vez que o programape executado
 		if (Controle.jaRodado) {
 			Menu.escolha_login_cadastro();
+
+			Menu.TelaDocente(); //DEGUB
+
 		} else {
 			while (Menu.isAcabado) {
 				Menu.Cadastrar();
-				
 			}
 		}
 
-  		Pessoa.armazenarDadosEstudante(); // Escreve os dados no arquivo do estudante
-		Pessoa.armazenarDadosDocente();  // Escreve os dados no arquivo do docente
+		Pessoa.armazenarDadosEstudante(); // Escreve os dados no arquivo do estudante
+		Pessoa.armazenarDadosDocente(); // Escreve os dados no arquivo do docente
 
 		// Só pra eu me organizar --
 		// Menu.login();
 		// Menu.telaPrincipal();
-		//Depois adicionar mais cositas
+		// Depois adicionar mais cositas
 	}
 }

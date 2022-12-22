@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Menu {
 	public static boolean isAcabado = false;
+
 	public static void Cadastrar() {
 		// clear(); //Adicionar quando terminar o debug
 
@@ -22,7 +23,7 @@ public class Menu {
 			case "1": // Cadastrar estudante
 				c.CadastrarEstudante();
 
-				Estudante.getDados(); //DEBUG
+				Estudante.getDados(); // DEBUG
 
 				System.out.println("\n \n -----> 🕛 Tempo para você guardar seus dados.");
 				System.out.println("");
@@ -32,7 +33,7 @@ public class Menu {
 			case "2": // Cadastrar Docente
 				c.CadastrarDocente();
 
-				Docente.getDados(); //DEBUG
+				Docente.getDados(); // DEBUG
 
 				System.out.println("\n \n -----> Tempo para você guardar seus dados.");
 				System.out.println("");
@@ -41,7 +42,7 @@ public class Menu {
 
 			case "3":
 				System.out.println("----> 🏃  Saindo...");
-				isAcabado = true;	
+				isAcabado = true;
 				break;
 
 			default:
@@ -68,14 +69,14 @@ public class Menu {
 				Menu.Cadastrar();
 				break;
 			case "2":
-				Menu.login();
+				Menu.Login();
 				break;
 		}
 	}
 
-	public static void login() {
+	public static void Login() {
 
-        Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 
 		System.out.println("\n------ Sistema Acadêmico SA ------");
 		System.out.println("-----> Login ------");
@@ -86,32 +87,51 @@ public class Menu {
 		System.out.print("\nDigite sua senha: ");
 		String senha = sc.next();
 
-		if(Estudante.ListaEstudantes.containsKey(senha)){
+		if (Estudante.ListaEstudantes.containsKey(senha)) {
 
 		}
 
-
-
 	}
 
-	public static void telaDocente(){
-		
+	public static void TelaDocente() {
+
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("\n------ Sistema Acadêmico SA ------");
 		System.out.println("-----> Menu do Docente ------");
 
-		System.out.println("\n-----> O que você desej fazer agora? ");
+		System.out.println("\n-----> O que você deseja fazer agora? ");
 		System.out.println("1 - Cadastrar disciplina");
 		System.out.println("2 - ....");
-		System.out.println("-----> Digite a sua escolha: ");
-		
-		int escolha = sc.nextInt(); //TODO Tratar excessões
+		System.out.print("-----> Digite a sua escolha: ");
+
+		int escolha = sc.nextInt(); // TODO Tratar excessões
 		switch (escolha) {
 			case 1:
+				System.out.println("\n------ Sistema Acadêmico SA ------");
+				System.out.println("-----> Menu do Docente ------");
+				System.out.println("-----> Cadastrar Disciplina");
+
+				boolean isCerto = true; // Variavel para definir se vai continuar o código ou retonar
+				while (isCerto) {
+					System.out.println("\nDigite o nome da disciplina: ");
+					String nomeDisciplina = sc.next();
+
+					System.out.println(nomeDisciplina + ", É o nome da diciplina, certo?");
+					System.out.println("Insira sua resposta: (y/n)");
+					String resposta = sc.next();
+
+					if (resposta.equals("y") || resposta.equals("s") || resposta.contains("s")) {
+						System.out.println("Tá ok então, vamos seguir... \n");
+						isCerto = false;
+					}
+				}
+
+				System.out.println("\nQual o nome do professor?");
+
 				// Controle.CadastrarDisciplina();
 				break;
-		
+
 			default:
 				break;
 		}
@@ -119,17 +139,17 @@ public class Menu {
 
 	public static void UnderConstruction() {
 		System.out.println("""
-								      #&&&                     &&&
-								****%%%%*****%%%*****%%%%*****%%%*****%%
-								***%%%*****%%%*****%%%%*****%%%*****%%%%
-								*%%%*****%%%%*****%%%*****%%%*****%%%%**
-								%%*****%%%%*****%%%*****%%%%****(%%%****
-								      #&&&                     &&&
-								      #&&&                     &&&
-								      #&&&                     &&&
-								      #&&&                     &&&
-								      #&&&                     &&&
-								     &&&&&&                   &&&&&&""");
+				      #&&&                     &&&
+				****%%%%*****%%%*****%%%%*****%%%*****%%
+				***%%%*****%%%*****%%%%*****%%%*****%%%%
+				*%%%*****%%%%*****%%%*****%%%*****%%%%**
+				%%*****%%%%*****%%%*****%%%%****(%%%****
+				      #&&&                     &&&
+				      #&&&                     &&&
+				      #&&&                     &&&
+				      #&&&                     &&&
+				      #&&&                     &&&
+				     &&&&&&                   &&&&&&""");
 		System.out.println("\n-----> Ainda não há nada por aq, volte mais tarde...\n");
 
 	}
