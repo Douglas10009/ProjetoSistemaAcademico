@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Menu {
+	public static boolean isAcabado = false;
 	public static void Cadastrar() {
 		// clear(); //Adicionar quando terminar o debug
 
@@ -40,6 +41,7 @@ public class Menu {
 
 			case "3":
 				System.out.println("----> 🏃  Saindo...");
+				isAcabado = true;	
 				break;
 
 			default:

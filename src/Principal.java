@@ -20,7 +20,10 @@ public class Principal {
 		if (Controle.jaRodado) {
 			Menu.escolha_login_cadastro();
 		} else {
-			Menu.Cadastrar();
+			while (Menu.isAcabado) {
+				Menu.Cadastrar();
+				
+			}
 		}
 
   		Pessoa.armazenarDadosEstudante(); // Escreve os dados no arquivo do estudante
