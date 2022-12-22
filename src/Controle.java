@@ -1,12 +1,13 @@
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.Calendar;
 
 public class Controle {
     static boolean jaRodado = false; // Verifica se o programa já foi rodado
 
     public void a() {
-        // String matricula = Estudante.ListaEstudantes.get("111").getMatricula();
+        // String matricula = Estudante.ListaEstudantes.get("111").getMatricula(); //Exemplo de pegar dados no array list
     }
 
 
@@ -90,7 +91,7 @@ public class Controle {
 
         pessoa.cadastrarEstudante(estudante); // Pega o nome e o CPF
 
-        String matricula = estudante.gerarMatricula("estudante");
+        String matricula = Controle.gerarMatricula("estudante");
         estudante.setMatricula(matricula);
 
         System.out.printf("\n----> Cadastro do estudante %s, realizado com sucesso!", estudante.getNome()); // Cadastro
@@ -114,7 +115,7 @@ public class Controle {
 
         pessoa.cadastrarDocente(docente); // Pega o nome e o CPF
 
-        String matricula = docente.gerarMatricula("docente");
+        String matricula = Controle.gerarMatricula("docente");
         docente.setMatricula(matricula);
 
         System.out.printf("\n----> Cadastro do docente %s, realizado com sucesso!", docente.getNome()); // Cadastro
@@ -128,6 +129,37 @@ public class Controle {
                                                                                                               // - AVISO
 
         Docente.ListaDocentes.put(docente.getCpf(), docente); // Coloca os dados na hashmap
+    }
+
+    public static String gerarMatricula(String tipo) {
+        // ANO + ID + CONTADOR
+        // ID = Professor(20) ou Estudante(23)
+
+        // Ano atual
+        Calendar cal = Calendar.getInstance();
+        int ano = cal.get(Calendar.YEAR);
+
+        // Id da pessoa
+        int id = 0;
+
+        //Verificar tipo
+        if (tipo.equals("estudante")) {
+            id = 23;
+            Estudante.ultimo_contador++;
+            return ano + Integer.toString(id) + Integer.toString(Estudante.ultimo_contador);
+
+        } else if (tipo.equals("docente")) {
+            id = 20;
+            Docente.ultimo_contador++;
+            return ano + Integer.toString(id) + Integer.toString(Docente.ultimo_contador);
+
+        } else {
+            return null;
+        }
+    }
+
+    public static void CadastrarDisciplina(){
+        
     }
 }
 
