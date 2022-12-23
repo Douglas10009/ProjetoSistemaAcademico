@@ -1,4 +1,4 @@
-
+w2
 // O aluno se inscreve na instituicao, dando o nome e CPF, e recebe o matricula 
 //Modelo de aviso: "-----> ..."
 

@@ -8,7 +8,7 @@ public class Menu {
 
 		System.out.println("\n \n        👋 SEJA BEM VINDE 👋");
 		System.out.println(" ");
-		System.out.println("      𝓢𝓲𝓼𝓽𝓮𝓶𝓪 𝓐𝓬𝓪𝓭𝓮𝓶𝓲𝓬𝓸 𝓡𝓮𝓼𝓮𝓫𝓪 ");
+		System.out.println("      SITEMA ACADÊMICO RESEBA ");
 		System.out.println("\n1 - ✏️  Cadastrar estudante");
 		System.out.println("2 - 🖊️  Cadastrar docente");
 		System.out.println("3 - 💬  Sair");
