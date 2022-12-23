@@ -4,13 +4,11 @@ import java.io.PrintWriter;
 import java.util.Map;
 import java.util.Scanner;
 
-
 /*
  * -- Funções da classe --
  * Classe para mostrar a parte do design e a parte mais abstrata das classes
  * 
  */
-
 
 public class Pessoa {
     String nome = "";
@@ -19,12 +17,12 @@ public class Pessoa {
     public void cadastrarEstudante(Estudante e) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("\u0006	Digite seu nome: ");
+        System.out.print("📝	Digite seu nome: ");
         String nome = sc.nextLine(); // TODO Tratar exceções
         e.setNome(nome); // Pode existir nomes iguais
 
         while (Estudante.ListaEstudantes.get(cpf) == null) {
-            System.out.print("\u0006 Digite seu cpf: ");
+            System.out.print("📑 Digite seu cpf: ");
             String cpf = sc.nextLine(); // TODO Tratar exceções
 
             // Verifica se o CPF já existe
@@ -32,7 +30,7 @@ public class Pessoa {
                 e.setCpf(cpf);
                 break;
             } else {
-                System.out.println("\n---->\u0001 CPF já existe, tente novamente...");
+                System.out.println("\n---->⛔ CPF já existe, tente novamente...");
             }
         }
 
@@ -99,21 +97,66 @@ public class Pessoa {
                 gravar.append(";");
                 gravar.append(Entry.getValue().getNome()); // Nome
                 gravar.append(";");
-                gravar.append(Entry.getValue().getMatricula()); // Matricula 
+                gravar.append(Entry.getValue().getMatricula()); // Matricula
                 gravar.append(";");
                 gravar.append(Integer.toString(Entry.getValue().getUltimo_contador())); // Ultimo Contador
                 gravar.append(";");
                 gravar.append("\n");
             }
             gravar.close();
-            System.out.println("----> Arquivo de armazenamento de dados criado/atualizado."); // Armazenamento Dados - AVISO
+            System.out.println("----> Arquivo de armazenamento de dados do docente criado/atualizado."); // Armazenamento Dados -
+                                                                                              // AVISO
         } catch (Exception e) {
             System.err.println("\n \n-----> OCORREU UM ERRO INESPERADO"); // error
             e.printStackTrace();
         }
     }
 
-    
+    public static void armazenarDadosTurma() {
+        // Cria a pasta e o arquivo de banco de dados, se não já estiver criado.
+        File arq = Controle.VerificarPasta_Arquivo("BancoDeDados", "turma.txt");
+
+        try {
+            PrintWriter gravar = new PrintWriter(new FileWriter(arq, true)); // O true é para ele escrever ao inves de
+                                                                             // sobreescrever
+
+            for (int i = 0; i < Turma.listaAnoTurma.size(); i++) {
+                gravar.append(Turma.listaAnoTurma.get(i));
+
+
+
+
+
+
+
+
+
+
+                //TODO COMO SEPARA AS NOTAS??????
+
+
+
+
+
+                
+
+
+
+
+
+
+
+            }
+
+            gravar.close();
+            System.out.println("----> Arquivo de armazenamento de dados da turma criado/atualizado."); // Armazenamento Dados -
+                                                                                              // AVISO
+        } catch (Exception e) {
+            System.err.println("\n \n-----> OCORREU UM ERRO INESPERADO"); // error
+            e.printStackTrace();
+        }
+
+    }
 
     public void setNome(String nome) {
         this.nome = nome;
@@ -134,7 +177,8 @@ public class Pessoa {
 }
 
 // Verificar os estudantes no arquivo e colcar no HASHMAP 🆗
-// Colocar o <CPF, Estudante> HashMap, para acessar os outros dados do estudante 🆗
+// Colocar o <CPF, Estudante> HashMap, para acessar os outros dados do estudante
+// 🆗
 
 // Instance of, Pessoa new Estudante - Obrigatório ter para funcionar o código
 // abaixo

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
@@ -8,14 +9,14 @@ public class Menu {
 
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("\n \n       \u0004  SEJA BEM VINDE \u0004");
+		System.out.println("\n \n        👋 SEJA BEM VINDE 👋");
 		System.out.println(" ");
-		System.out.println("      SITEMA ACADÊMICO RESEBA ");
-		System.out.println("\n1 - \u0005  Cadastrar estudante");
-		System.out.println("2 - \u0005  Cadastrar docente");
+		System.out.println("      SISTEMA ACADÊMICO RESEBA ");
+		System.out.println("\n1 - ✏️  Cadastrar estudante");
+		System.out.println("2 - 🖊️  Cadastrar docente");
 		System.out.println("3 - Login");
 		System.out.println("4 - Sair");
-		System.out.print("\n\u0005  Digite sua escolha: ");
+		System.out.print("\n📝  Digite sua escolha: ");
 		String opc = sc.next();
 		sc.nextLine(); // Para tirar o enter do buff
 
@@ -26,7 +27,7 @@ public class Menu {
 
 				Estudante.getDados(); // DEBUG
 
-				System.out.println("\n \n -----> \u0001 Tempo para você guardar seus dados.");
+				System.out.println("\n \n -----> 🕛 Tempo para você guardar seus dados.");
 				System.out.println("");
 				barraProgressoLimpo(300);
 				break;
@@ -59,15 +60,13 @@ public class Menu {
 	public static void escolha_login_cadastro() {
 		Scanner sc = new Scanner(System.in);
 
-		
-		System.out.println("\n \n       \u0004  SEJA BEM VINDE \u0004");
+		System.out.println("\n \n        👋 SEJA BEM VINDE 👋");
 		System.out.println(" ");
-		System.out.println("      SITEMA ACADÊMICO RESEBA ");
-		System.out.println("\n1 - \u0005  Cadastrar estudante");
-		System.out.println("2 - \u0005  Cadastrar docente");
-		System.out.println("3 - Login");
-		System.out.println("4 - Sair");
-		System.out.print("\n \u0005  Digite sua escolha: ");
+		System.out.println("      𝓢𝓲𝓼𝓽𝓮𝓶𝓪 𝓐𝓬𝓪𝓭𝓮𝓶𝓲𝓬𝓸 RECEBA ");
+		System.out.println("\n1 - ✏️  Cadastrar");
+		System.out.println("2 - 🖊️  Login");
+		System.out.println("3 - 💬  Sair");
+		System.out.print("\n📝  Digite sua escolha: ");
 		String opc = sc.next();
 		sc.nextLine(); // Para tirar o enter do buff
 
@@ -81,7 +80,7 @@ public class Menu {
 			case "3":
 				Menu.isAcabado = false;
 				break;
-			
+
 		}
 	}
 
@@ -153,7 +152,8 @@ public class Menu {
 		System.out.println("\n-----> O que você deseja fazer agora? ");
 		System.out.println("1 - Controlar disciplina");
 		System.out.println("2 - Controlar turma");
-		System.out.println("3 - Sair ");
+		System.out.println("3 - Editar informações pessoais");
+		System.out.println("4 - Sair ");
 		System.out.print("-----> Digite a sua escolha: ");
 
 		int escolha = sc.nextInt(); // TODO Tratar excessões
@@ -194,11 +194,12 @@ public class Menu {
 							}
 						}
 
-						String professorDisciplina = EstadoAtual.getNome(); //Define o professor atual com professor da dsciplina
+						String professorDisciplina = EstadoAtual.getNome(); // Define o professor atual com professor da
+																			// disciplina
 
-						System.out.println("-----> A qual turma essa disciplina pertençe? ");
+						// System.out.println("-----> A qual turma essa disciplina pertençe? "); // Vai
+						// ser o professor que criar
 						// Turma.getDados();
-					
 
 						// CONTINUAR
 
@@ -239,20 +240,32 @@ public class Menu {
 				int opcaoDisc = sc.nextInt();
 
 				switch (opcaoDisc) {
-						case 1: // Cadastrar turma
-							System.out.println("\n------ Sistema Acadêmico SA ------");
-							System.out.println("-----> Menu do Docente ------");
-							System.out.println("-----> Cadastrar turma");
+					case 1: // Cadastrar turma
+						System.out.println("\n------ Sistema Acadêmico SA ------");
+						System.out.println("-----> Menu do Docente ------");
+						System.out.println("-----> Cadastrar turma");
 
-							System.out.print("\nDigite a série da turma: ");
-							String serieTurma = sc.next();
-						
+						System.out.print("\nDigite o ano da turma: (Somente números) ");
+						String anoTurma = sc.next();
 
+						// TO DO Verificar se já existe turma desse ano
+						boolean sair = false;
+						for (int i = 0; i < Turma.listaAnoTurma.size(); i++) {
+							if (Turma.listaAnoTurma.get(i).equals(anoTurma)) {
+								System.out.println("-----> Essa turma já existe, tente novamente...");
+								sair = true;
+								break;
 
+							}
+						}
 
+						if (sair) {
+							break;
+						}
 
+						Turma.CadastrarTurma(anoTurma);
 
-						Menu.UnderConstruction();
+						// Menu.UnderConstruction();
 						break;
 					case 2:
 						// Editar turma
@@ -271,7 +284,12 @@ public class Menu {
 						System.out.println("-----> Opção Inválida....");
 						break;
 				}
+
 			case 3:
+				// Editar informações pessoais docente
+				Menu.UnderConstruction();
+				break;
+			case 4:
 				System.out.println("\n-----> Saindo....");
 				break;
 		}
@@ -279,6 +297,7 @@ public class Menu {
 
 	public static void UnderConstruction() {
 		System.out.println("""
+
 				      #&&&                     &&&
 				****%%%%*****%%%*****%%%%*****%%%*****%%
 				***%%%*****%%%*****%%%%*****%%%*****%%%%
@@ -289,7 +308,9 @@ public class Menu {
 				      #&&&                     &&&
 				      #&&&                     &&&
 				      #&&&                     &&&
-				     &&&&&&                   &&&&&&""");
+				     &&&&&&                   &&&&&&
+
+					 """);
 		System.out.println("\n-----> Ainda não há nada por aq, volte mais tarde...\n");
 
 	}

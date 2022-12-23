@@ -33,7 +33,7 @@ public class Controle {
         }
         ler.close();
 
-        // Armazena os dados do docente NO hASHmAP
+        // Armazena os dados do docente no HashMap
         File arq_2 = Controle.VerificarPasta_Arquivo("BancoDeDados", "docente.txt");
         BufferedReader ler_2 = new BufferedReader(new FileReader(arq_2));
         String linha_2 = ler_2.readLine(); // Primeira linha a ser lida
@@ -51,6 +51,33 @@ public class Controle {
             linha_2 = ler_2.readLine();
         }
         ler_2.close();
+
+
+        //Armazena os dados da turma no ArrayList
+        File arq_3 = Controle.VerificarPasta_Arquivo("BancoDeDados", "docente.txt");
+        BufferedReader ler_3 = new BufferedReader(new FileReader(arq_3));
+        String linha_3 = ler_3.readLine(); // Primeira linha a ser lida
+
+        while (linha_3 != null) {
+            String[] valores = linha_3.split(";");
+
+
+
+
+
+            
+
+            // TO DO VÊ ISSO AK
+
+
+
+
+
+
+
+            linha_3 = ler_3.readLine();
+        }
+        ler_3.close();
 
         System.out.println("\n-----> Sucesso na leitura dos dados");
     }
