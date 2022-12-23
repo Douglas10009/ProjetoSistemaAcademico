@@ -4,19 +4,21 @@ import java.util.Scanner;
 public class Menu {
 	public static boolean isAcabado = true;
 
+
+
 	public static void Cadastrar() {
 		// clear(); //Adicionar quando terminar o debug
 
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("\n \n        👋 SEJA BEM VINDE 👋");
+		System.out.println("\n \n         SEJA BEM VINDE ");
 		System.out.println(" ");
 		System.out.println("      SISTEMA ACADÊMICO RESEBA ");
-		System.out.println("\n1 - ✏️  Cadastrar estudante");
-		System.out.println("2 - 🖊️  Cadastrar docente");
+		System.out.println("\n1 - Cadastrar estudante");
+		System.out.println("2 - Cadastrar docente");
 		System.out.println("3 - Login");
 		System.out.println("4 - Sair");
-		System.out.print("\n📝  Digite sua escolha: ");
+		System.out.print("\n-----> Digite sua escolha: ");
 		String opc = sc.next();
 		sc.nextLine(); // Para tirar o enter do buff
 
@@ -57,25 +59,27 @@ public class Menu {
 		}
 	}
 
+
+
 	public static void escolha_login_cadastro() {
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("\n \n        👋 SEJA BEM VINDE 👋");
+		System.out.println("\n \n         SEJE BEM VINDE ");
 		System.out.println(" ");
-		System.out.println("      𝓢𝓲𝓼𝓽𝓮𝓶𝓪 𝓐𝓬𝓪𝓭𝓮𝓶𝓲𝓬𝓸 RECEBA ");
-		System.out.println("\n1 - ✏️  Cadastrar");
-		System.out.println("2 - 🖊️  Login");
-		System.out.println("3 - 💬  Sair");
-		System.out.print("\n📝  Digite sua escolha: ");
+		System.out.println("      SISTEMA ACADÊMICO RESEBA \n");
+		System.out.println("1 -  Cadastrar");
+		System.out.println("2 -  Login");
+		System.out.println("3 -  Sair");
+		System.out.print("\n-----> Digite sua escolha: ");
 		String opc = sc.next();
 		sc.nextLine(); // Para tirar o enter do buff
 
 		switch (opc) {
 			case "1":
-				Menu.Cadastrar();
+				Menu.Cadastrar(); // REDIRECIONAMENTO
 				break;
 			case "2":
-				Menu.Login();
+				Menu.Login(); // REDIRECIONAMENTO
 				break;
 			case "3":
 				Menu.isAcabado = false;
@@ -83,6 +87,8 @@ public class Menu {
 
 		}
 	}
+
+
 
 	public static void Login() {
 		Scanner sc = new Scanner(System.in);
@@ -102,7 +108,7 @@ public class Menu {
 			String matricula_estudante = Estudante.ListaEstudantes.get(senha).getMatricula();
 
 			if (usuario.equals(matricula_estudante)) {
-				System.out.println("Olá " + Estudante.ListaEstudantes.get(senha).getNome() + "! Usuário logado");
+				System.out.println("\n-----> Olá " + Estudante.ListaEstudantes.get(senha).getNome() + "! Usuário logado :) \n");
 
 				// Como é que eu vou salvar esse login no sistema????
 				EstadoAtual.setNome(Estudante.ListaEstudantes.get(senha).getNome());
@@ -114,7 +120,7 @@ public class Menu {
 				// Menu.TelaEstudante();
 
 			} else {
-				System.out.println("Esse usuário/n° de matricula não está cadastrado");
+				System.out.println("\n-----> Esse usuário/n° de matricula não está cadastrado");
 			}
 
 		} else if (Docente.ListaDocentes.containsKey(senha)) { // Verifica o CPF no HashMap docente
@@ -122,7 +128,7 @@ public class Menu {
 			String matricula_docente = Docente.ListaDocentes.get(senha).getMatricula();
 
 			if (usuario.equals(matricula_docente)) {
-				System.out.println("-----> Olá " + Docente.ListaDocentes.get(senha).getNome() + "! Usuário logado");
+				System.out.println("\n-----> Olá " + Docente.ListaDocentes.get(senha).getNome() + "! Usuário logado :)");
 
 				// Como é que eu vou salvar esse login no sistema????
 				EstadoAtual.setNome(Docente.ListaDocentes.get(senha).getNome());
@@ -131,7 +137,7 @@ public class Menu {
 				// que ele saia
 
 				// Redireciona para a tela do docente
-				Menu.TelaDocente();
+				Menu.TelaDocente(); //REDIRECIONAMENTO
 
 			} else {
 				System.out.println("Esse usuário/n° de matricula não está cadastrado");
@@ -143,59 +149,81 @@ public class Menu {
 
 	}
 
+
+
 	public static void TelaDocente() {
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("\n------ Sistema Acadêmico SA ------");
+		System.out.println("\n \n------ Sistema Acadêmico SA ------");
 		System.out.println("-----> Menu do Docente ------");
 
-		System.out.println("\n-----> O que você deseja fazer agora? ");
+		System.out.println("\n-----> O que você deseja fazer agora? \n");
+		
 		System.out.println("1 - Controlar disciplina");
 		System.out.println("2 - Controlar turma");
 		System.out.println("3 - Editar informações pessoais");
 		System.out.println("4 - Sair ");
-		System.out.print("-----> Digite a sua escolha: ");
+
+		System.out.print("\n-----> Digite a sua escolha: ");
 
 		int escolha = sc.nextInt(); // TODO Tratar excessões
 
 		switch (escolha) {
 			case 1:
-				System.out.println("\n------ Sistema Acadêmico SA ------");
+				System.out.println("\n \n------ Sistema Acadêmico SA ------");
 				System.out.println("-----> Menu do Docente ------");
 				System.out.println("-----> Controlar disciplina");
 
-				System.out.println("\n-----> O que você deseja fazer agora? ");
+				System.out.println("\n-----> O que você deseja fazer agora? \n");
 				System.out.println("1 - Cadastrar disciplina");
 				System.out.println("2 - Editar disciplina");
 				System.out.println("3 - Excluir disciplina");
 				System.out.println("4 - Sair");
-				System.out.print("-----> Digite sua escolha: ");
+				System.out.print("\n-----> Digite sua escolha: ");
 				int opcaoDisciplina = sc.nextInt();
 
 				switch (opcaoDisciplina) {
 					case 1:
-						System.out.println("\n------ Sistema Acadêmico SA ------");
+						System.out.println("\n \n------ Sistema Acadêmico SA ------");
 						System.out.println("-----> Menu do Docente ------");
 						System.out.println("-----> Cadastrar Disciplina");
 
 						boolean isCerto = true; // Variavel para definir se vai continuar o código ou retonar
+						String nomeDisciplina = "";
 						while (isCerto) {
 							System.out.print("\nDigite o nome da disciplina: ");
-							String nomeDisciplina = sc.next();
+							 nomeDisciplina = sc.next();
 
-							System.out.println(nomeDisciplina + ", É o nome da diciplina, certo?");
+
+							System.out.println("\n" + nomeDisciplina + ", É o nome da diciplina, certo?");
 
 							System.out.print("Insira sua resposta: (y/n)");
 							String resposta = sc.next();
 
 							if (resposta.equals("y") || resposta.equals("s") || resposta.contains("s")) {
-								System.out.println("\n----->   Tá ok então, vamos seguir... \n");
+								System.out.println("\n-----> Disciplina cadastrada! :D \n");
 								isCerto = false;
 							}
 						}
 
 						String professorDisciplina = EstadoAtual.getNome(); // Define o professor atual com professor da
 																			// disciplina
+						String cpf_Doscente = EstadoAtual.getDocente().getCpf();
+
+
+						//SETAR UM PROFESSOR  NA DISCIPLINA
+						System.out.println("\n\n-----> Atenção, o professor atual que será o responsável pela disciplina");
+						Disciplina.CadastrarDisciplina(nomeDisciplina , cpf_Doscente);
+
+						//SETAR UMA TURMA NA DISCIPLINA
+						//SETAR AO MENOS 1 ESTUDANTE NA DISCIPLINA
+
+
+
+
+
+
+
 
 						// System.out.println("-----> A qual turma essa disciplina pertençe? "); // Vai
 						// ser o professor que criar
@@ -230,12 +258,12 @@ public class Menu {
 				System.out.println("-----> Menu do Docente ------");
 				System.out.println("-----> Controlar turma");
 
-				System.out.println("\n-----> O que você deseja fazer agora? ");
+				System.out.println("\n \n-----> O que você deseja fazer agora? \n");
 				System.out.println("1 - Cadastrar turma");
 				System.out.println("2 - Editar turma");
 				System.out.println("3 - Excluir turma");
 				System.out.println("4 - Sair");
-				System.out.print("-----> Digite sua escolha: ");
+				System.out.print("\n-----> Digite sua escolha: ");
 
 				int opcaoDisc = sc.nextInt();
 
@@ -294,6 +322,8 @@ public class Menu {
 				break;
 		}
 	}
+
+
 
 	public static void UnderConstruction() {
 		System.out.println("""

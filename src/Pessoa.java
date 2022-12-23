@@ -122,30 +122,8 @@ public class Pessoa {
 
             for (int i = 0; i < Turma.listaAnoTurma.size(); i++) {
                 gravar.append(Turma.listaAnoTurma.get(i));
-
-
-
-
-
-
-
-
-
-
-                //TODO COMO SEPARA AS NOTAS??????
-
-
-
-
-
-                
-
-
-
-
-
-
-
+                gravar.append(";");
+                gravar.append("\n");
             }
 
             gravar.close();

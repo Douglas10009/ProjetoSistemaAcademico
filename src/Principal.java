@@ -19,19 +19,19 @@ public class Principal {
 		// Verifica se é a primeira vez que o programape executado
 		while (Menu.isAcabado) {
 			if (Controle.jaRodado) {
-				Menu.escolha_login_cadastro();
+				Menu.escolha_login_cadastro(); // REDIRECIONAMENTO
 
 				// // Menu.TelaDocente(); //DEGUB
 				// Menu.Login(); // DEGUB
 
 			} else {
-				Menu.Cadastrar();
+				Menu.Cadastrar(); // REDIRECIONAMENTO
 			}
 		}
 
 		Pessoa.armazenarDadosEstudante(); // Escreve os dados no arquivo do estudante
 		Pessoa.armazenarDadosDocente(); // Escreve os dados no arquivo do docente
-		Pessoa.armazenarDadosTurma();
+		Pessoa.armazenarDadosTurma(); // Escreve os dados no arquivo da turma
 
 		// Só pra eu me organizar --
 		// Menu.login();

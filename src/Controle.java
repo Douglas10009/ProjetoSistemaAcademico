@@ -54,14 +54,16 @@ public class Controle {
 
 
         //Armazena os dados da turma no ArrayList
-        File arq_3 = Controle.VerificarPasta_Arquivo("BancoDeDados", "docente.txt");
+        File arq_3 = Controle.VerificarPasta_Arquivo("BancoDeDados", "turma.txt");
         BufferedReader ler_3 = new BufferedReader(new FileReader(arq_3));
         String linha_3 = ler_3.readLine(); // Primeira linha a ser lida
 
+        int contador = 0;
         while (linha_3 != null) {
             String[] valores = linha_3.split(";");
 
-
+            Turma.listaAnoTurma.add(valores[contador]);
+            contador ++;
 
 
 
