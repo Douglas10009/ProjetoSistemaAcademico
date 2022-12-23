@@ -97,7 +97,8 @@ public class Menu {
 				// Como é que eu vou salvar esse login no sistema????
 				EstadoAtual.setNome(Estudante.ListaEstudantes.get(senha).getNome());
 				EstadoAtual.setEstudante(Estudante.ListaEstudantes.get(senha));
-				// Colocando na classe EstadoAtual, que vai definir qual o usuário atual, até que ele saia
+				// Colocando na classe EstadoAtual, que vai definir qual o usuário atual, até
+				// que ele saia
 
 			} else {
 				System.out.println("Esse usuário/n° de matricula não está cadastrado");
@@ -111,7 +112,7 @@ public class Menu {
 				System.out.println("Olá " + Docente.ListaDocentes.get(senha).getNome() + "! Usuário logado");
 
 				// Como é que eu vou salvar esse login no sistema????
-				
+
 				EstadoAtual.setNome(Docente.ListaDocentes.get(senha).getNome());
 				EstadoAtual.setDocente(Docente.ListaDocentes.get(senha));
 				// Colocando na classe EstadoAtual, que vai definir qual o usuário atual, até
@@ -136,12 +137,11 @@ public class Menu {
 		System.out.println("\n-----> O que você deseja fazer agora? ");
 		System.out.println("1 - Controlar disciplina");
 		System.out.println("2 - Controlar turma");
-		
-		System.out.println("4 - Cadastrar turma");
-
 		System.out.print("-----> Digite a sua escolha: ");
 
 		int escolha = sc.nextInt(); // TODO Tratar excessões
+
+		
 		switch (escolha) {
 			case 1:
 				System.out.println("\n------ Sistema Acadêmico SA ------");
@@ -149,37 +149,81 @@ public class Menu {
 				System.out.println("-----> Controlar disciplina");
 
 				System.out.println("1 - Cadastrar disciplina");
-				System.out.println("2 - Excluir disciplina");
-				System.out.println("3 - Editar disciplina");
+				System.out.println("2 - Editar disciplina");
+				System.out.println("3 - Excluir disciplina");
 
-				int opcDisc = sc.nextInt()
+				int opcaoDisciplina = sc.nextInt();
 
-				System.out.println("\n------ Sistema Acadêmico SA ------");
-				System.out.println("-----> Menu do Docente ------");
-				System.out.println("-----> Cadastrar Disciplina");
+				switch (opcaoDisciplina) {
+					case 1:
+						System.out.println("\n------ Sistema Acadêmico SA ------");
+						System.out.println("-----> Menu do Docente ------");
+						System.out.println("-----> Cadastrar Disciplina");
 
-				boolean isCerto = true; // Variavel para definir se vai continuar o código ou retonar
-				while (isCerto) {
-					System.out.println("\nDigite o nome da disciplina: ");
-					String nomeDisciplina = sc.next();
+						boolean isCerto = true; // Variavel para definir se vai continuar o código ou retonar
+						while (isCerto) {
+							System.out.println("\nDigite o nome da disciplina: ");
+							String nomeDisciplina = sc.next();
 
-					System.out.println(nomeDisciplina + ", É o nome da diciplina, certo?");
-					System.out.println("Insira sua resposta: (y/n)");
-					String resposta = sc.next();
+							System.out.println(nomeDisciplina + ", É o nome da diciplina, certo?");
 
-					if (resposta.equals("y") || resposta.equals("s") || resposta.contains("s")) {
-						System.out.println("Tá ok então, vamos seguir... \n");
-						isCerto = false;
-					}
+							System.out.println("Insira sua resposta: (y/n)");
+							String resposta = sc.next();
+
+							if (resposta.equals("y") || resposta.equals("s") || resposta.contains("s")) {
+								System.out.println("Tá ok então, vamos seguir... \n");
+								isCerto = false;
+							}
+						}
+
+						System.out.println("\nQual o nome do professor? ");
+						String nomeProfessor = sc.next();
+
+						// Controle.CadastrarDisciplina();
+
+						break;
+					case 2:
+						//Editar disciplina
+						Menu.UnderConstruction();
+					
+					case 3:
+						//Excluir disciplina
+						Menu.UnderConstruction();
+
+					default:
+						System.out.println("-----> Opção Inválida....");
+						break;
 				}
 
-				System.out.println("\nQual o nome do professor?");
+			case 2:
+				System.out.println("\n------ Sistema Acadêmico SA ------");
+				System.out.println("-----> Menu do Docente ------");
+				System.out.println("-----> Controlar turma");
 
-				// Controle.CadastrarDisciplina();
-				break;
+				System.out.println("1 - Cadastrar turma");
+				System.out.println("2 - Editar turma");
+				System.out.println("3 - Excluir turma");
 
-			default:
-				break;
+				int opcaoDisc = sc.nextInt();
+
+				switch (opcaoDisc) {
+					case 1:
+						// Cadastrar turma
+						Menu.UnderConstruction();
+						break;
+					case 2:
+						// Editar turma
+						Menu.UnderConstruction();
+						break;
+					case 3:
+						// Excluir turma
+						Menu.UnderConstruction();
+						break;
+
+					default:
+						System.out.println("-----> Opção Inválida....");
+						break;
+				}
 		}
 	}
 
