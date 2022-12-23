@@ -237,8 +237,19 @@ public class Menu {
 				int opcaoDisc = sc.nextInt();
 
 				switch (opcaoDisc) {
-					case 1:
-						// Cadastrar turma
+						case 1: // Cadastrar turma
+							System.out.println("\n------ Sistema Acadêmico SA ------");
+							System.out.println("-----> Menu do Docente ------");
+							System.out.println("-----> Cadastrar turma");
+
+							System.out.print("\nDigite a série da turma: ");
+							String serieTurma = sc.next();
+						
+
+
+
+
+
 						Menu.UnderConstruction();
 						break;
 					case 2:
