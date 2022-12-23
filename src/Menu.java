@@ -22,20 +22,20 @@ public class Menu {
 		String opc = sc.next();
 		sc.nextLine(); // Para tirar o enter do buff
 
-		Controle c = new Controle();
+		Controle controle = new Controle();
 		switch (opc) {
 			case "1": // Cadastrar estudante
-				c.CadastrarEstudante();
+				controle.CadastrarEstudante();
 
 				Estudante.getDados(); // DEBUG
 
-				System.out.println("\n \n -----> 🕛 Tempo para você guardar seus dados.");
+				System.out.println("\n \n -----> Tempo para você guardar seus dados.");
 				System.out.println("");
 				barraProgressoLimpo(300);
 				break;
 
 			case "2": // Cadastrar Docente
-				c.CadastrarDocente();
+				controle.CadastrarDocente();
 
 				Docente.getDados(); // DEBUG
 
@@ -158,7 +158,7 @@ public class Menu {
 		System.out.println("-----> Menu do Docente ------");
 
 		System.out.println("\n-----> O que você deseja fazer agora? \n");
-		
+
 		System.out.println("1 - Controlar disciplina");
 		System.out.println("2 - Controlar turma");
 		System.out.println("3 - Editar informações pessoais");
