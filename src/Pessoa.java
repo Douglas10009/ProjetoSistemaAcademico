@@ -99,7 +99,8 @@ public class Pessoa {
                 gravar.append(";");
                 gravar.append(Entry.getValue().getNome()); // Nome
                 gravar.append(";");
-                gravar.append(Entry.getValue().getMatricula()); // Matricula //TO-DO
+                gravar.append(Entry.getValue().getMatricula()); // Matricula 
+                gravar.append(";");
                 gravar.append(Integer.toString(Entry.getValue().getUltimo_contador())); // Ultimo Contador
                 gravar.append(";");
                 gravar.append("\n");

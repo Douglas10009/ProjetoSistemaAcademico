@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Menu {
-	public static boolean isAcabado = false;
+	public static boolean isAcabado = true;
 
 	public static void Cadastrar() {
 		// clear(); //Adicionar quando terminar o debug
@@ -13,7 +13,8 @@ public class Menu {
 		System.out.println("      𝓢𝓲𝓼𝓽𝓮𝓶𝓪 𝓐𝓬𝓪𝓭𝓮𝓶𝓲𝓬𝓸 𝓡𝓮𝓼𝓮𝓫𝓪 ");
 		System.out.println("\n1 - ✏️  Cadastrar estudante");
 		System.out.println("2 - 🖊️  Cadastrar docente");
-		System.out.println("3 - 💬  Sair");
+		System.out.println("3 - Login");
+		System.out.println("4 - Sair");
 		System.out.print("\n📝  Digite sua escolha: ");
 		String opc = sc.next();
 		sc.nextLine(); // Para tirar o enter do buff
@@ -41,12 +42,16 @@ public class Menu {
 				break;
 
 			case "3":
-				System.out.println("----> 🏃  Saindo...");
-				isAcabado = true;
+				Menu.Login();
+				break;
+
+			case "4":
+				System.out.println("----> Saindo...");
+				isAcabado = false;
 				break;
 
 			default:
-				System.out.println("-----> ❌ Tente novamente, opção inválida..."); // AVISO
+				System.out.println("-----> Tente novamente, opção inválida..."); // AVISO
 
 		}
 	}
@@ -100,6 +105,9 @@ public class Menu {
 				// Colocando na classe EstadoAtual, que vai definir qual o usuário atual, até
 				// que ele saia
 
+				// Redireciona para a tela do estudante
+				// Menu.TelaEstudante();
+
 			} else {
 				System.out.println("Esse usuário/n° de matricula não está cadastrado");
 			}
@@ -112,11 +120,13 @@ public class Menu {
 				System.out.println("Olá " + Docente.ListaDocentes.get(senha).getNome() + "! Usuário logado");
 
 				// Como é que eu vou salvar esse login no sistema????
-
 				EstadoAtual.setNome(Docente.ListaDocentes.get(senha).getNome());
 				EstadoAtual.setDocente(Docente.ListaDocentes.get(senha));
 				// Colocando na classe EstadoAtual, que vai definir qual o usuário atual, até
 				// que ele saia
+
+				// Redireciona para a tela do docente
+				Menu.TelaDocente();
 
 			} else {
 				System.out.println("Esse usuário/n° de matricula não está cadastrado");
@@ -137,11 +147,11 @@ public class Menu {
 		System.out.println("\n-----> O que você deseja fazer agora? ");
 		System.out.println("1 - Controlar disciplina");
 		System.out.println("2 - Controlar turma");
+		System.out.println("3 - Sair ");
 		System.out.print("-----> Digite a sua escolha: ");
 
 		int escolha = sc.nextInt(); // TODO Tratar excessões
 
-		
 		switch (escolha) {
 			case 1:
 				System.out.println("\n------ Sistema Acadêmico SA ------");
@@ -151,7 +161,8 @@ public class Menu {
 				System.out.println("1 - Cadastrar disciplina");
 				System.out.println("2 - Editar disciplina");
 				System.out.println("3 - Excluir disciplina");
-
+				System.out.println("4 - Sair");
+				System.out.print("-----> Digite sua escolha: ");
 				int opcaoDisciplina = sc.nextInt();
 
 				switch (opcaoDisciplina) {
@@ -162,12 +173,12 @@ public class Menu {
 
 						boolean isCerto = true; // Variavel para definir se vai continuar o código ou retonar
 						while (isCerto) {
-							System.out.println("\nDigite o nome da disciplina: ");
+							System.out.print("\nDigite o nome da disciplina: ");
 							String nomeDisciplina = sc.next();
 
 							System.out.println(nomeDisciplina + ", É o nome da diciplina, certo?");
 
-							System.out.println("Insira sua resposta: (y/n)");
+							System.out.print("Insira sua resposta: (y/n)");
 							String resposta = sc.next();
 
 							if (resposta.equals("y") || resposta.equals("s") || resposta.contains("s")) {
@@ -179,16 +190,30 @@ public class Menu {
 						System.out.println("\nQual o nome do professor? ");
 						String nomeProfessor = sc.next();
 
+
+
+
+
+
+						// CONTINUAR
+
+
+
+
 						// Controle.CadastrarDisciplina();
 
 						break;
 					case 2:
-						//Editar disciplina
+						// Editar disciplina
 						Menu.UnderConstruction();
-					
+
 					case 3:
-						//Excluir disciplina
+						// Excluir disciplina
 						Menu.UnderConstruction();
+
+					case 4:
+						System.out.println("\n-----> Saindo....");
+						break;
 
 					default:
 						System.out.println("-----> Opção Inválida....");
@@ -203,6 +228,7 @@ public class Menu {
 				System.out.println("1 - Cadastrar turma");
 				System.out.println("2 - Editar turma");
 				System.out.println("3 - Excluir turma");
+				System.out.println("4 - Sair");
 
 				int opcaoDisc = sc.nextInt();
 
@@ -219,11 +245,18 @@ public class Menu {
 						// Excluir turma
 						Menu.UnderConstruction();
 						break;
+					
+					case 4:
+						System.out.println("\n-----> Saindo....");
+						break;
 
 					default:
 						System.out.println("-----> Opção Inválida....");
 						break;
 				}
+			case 3:
+				System.out.println("\n-----> Saindo....");
+				break;
 		}
 	}
 

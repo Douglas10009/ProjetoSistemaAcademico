@@ -29,7 +29,7 @@ public class Principal {
 			}
 		}
 
-		System.out.println(EstadoAtual.getNome());
+		
 
 		Pessoa.armazenarDadosEstudante(); // Escreve os dados no arquivo do estudante
 		Pessoa.armazenarDadosDocente(); // Escreve os dados no arquivo do docente
