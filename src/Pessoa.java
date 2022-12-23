@@ -19,12 +19,12 @@ public class Pessoa {
     public void cadastrarEstudante(Estudante e) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("📝	Digite seu nome: ");
+        System.out.print("\u0006	Digite seu nome: ");
         String nome = sc.nextLine(); // TODO Tratar exceções
         e.setNome(nome); // Pode existir nomes iguais
 
         while (Estudante.ListaEstudantes.get(cpf) == null) {
-            System.out.print("📑 Digite seu cpf: ");
+            System.out.print("\u0006 Digite seu cpf: ");
             String cpf = sc.nextLine(); // TODO Tratar exceções
 
             // Verifica se o CPF já existe
@@ -32,7 +32,7 @@ public class Pessoa {
                 e.setCpf(cpf);
                 break;
             } else {
-                System.out.println("\n---->⛔ CPF já existe, tente novamente...");
+                System.out.println("\n---->\u0001 CPF já existe, tente novamente...");
             }
         }
 

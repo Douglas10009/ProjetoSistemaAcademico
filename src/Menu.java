@@ -8,14 +8,14 @@ public class Menu {
 
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("\n \n        👋 SEJA BEM VINDE 👋");
+		System.out.println("\n \n       \u0004  SEJA BEM VINDE \u0004");
 		System.out.println(" ");
 		System.out.println("      SITEMA ACADÊMICO RESEBA ");
-		System.out.println("\n1 - ✏️  Cadastrar estudante");
-		System.out.println("2 - 🖊️  Cadastrar docente");
+		System.out.println("\n1 - \u0005  Cadastrar estudante");
+		System.out.println("2 - \u0005  Cadastrar docente");
 		System.out.println("3 - Login");
 		System.out.println("4 - Sair");
-		System.out.print("\n📝  Digite sua escolha: ");
+		System.out.print("\n\u0005  Digite sua escolha: ");
 		String opc = sc.next();
 		sc.nextLine(); // Para tirar o enter do buff
 
@@ -26,7 +26,7 @@ public class Menu {
 
 				Estudante.getDados(); // DEBUG
 
-				System.out.println("\n \n -----> 🕛 Tempo para você guardar seus dados.");
+				System.out.println("\n \n -----> \u0001 Tempo para você guardar seus dados.");
 				System.out.println("");
 				barraProgressoLimpo(300);
 				break;
@@ -59,13 +59,15 @@ public class Menu {
 	public static void escolha_login_cadastro() {
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("\n \n        👋 SEJA BEM VINDE 👋");
+		
+		System.out.println("\n \n       \u0004  SEJA BEM VINDE \u0004");
 		System.out.println(" ");
-		System.out.println("      𝓢𝓲𝓼𝓽𝓮𝓶𝓪 𝓐𝓬𝓪𝓭𝓮𝓶𝓲𝓬𝓸 𝓡𝓮𝓼𝓮𝓫𝓪 ");
-		System.out.println("\n1 - ✏️  Cadastrar");
-		System.out.println("2 - 🖊️  Login");
-		System.out.println("3 - 💬  Sair");
-		System.out.print("\n📝  Digite sua escolha: ");
+		System.out.println("      SITEMA ACADÊMICO RESEBA ");
+		System.out.println("\n1 - \u0005  Cadastrar estudante");
+		System.out.println("2 - \u0005  Cadastrar docente");
+		System.out.println("3 - Login");
+		System.out.println("4 - Sair");
+		System.out.print("\n \u0005  Digite sua escolha: ");
 		String opc = sc.next();
 		sc.nextLine(); // Para tirar o enter do buff
 
