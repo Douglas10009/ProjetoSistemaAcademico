@@ -17,19 +17,17 @@ public class Principal {
 		Controle.lerArquivo(); // Lê os arquivos e coloca no HashMap
 
 		// Verifica se é a primeira vez que o programape executado
-		if (Controle.jaRodado) {
-			Menu.escolha_login_cadastro();
+		while (Menu.isAcabado) {
+			if (Controle.jaRodado) {
+				Menu.escolha_login_cadastro();
 
-			// Menu.TelaDocente(); //DEGUB
-			Menu.Login(); //DEGUB
+				// // Menu.TelaDocente(); //DEGUB
+				// Menu.Login(); // DEGUB
 
-		} else {
-			while (Menu.isAcabado) {
+			} else {
 				Menu.Cadastrar();
 			}
 		}
-
-		
 
 		Pessoa.armazenarDadosEstudante(); // Escreve os dados no arquivo do estudante
 		Pessoa.armazenarDadosDocente(); // Escreve os dados no arquivo do docente

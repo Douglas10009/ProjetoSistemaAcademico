@@ -76,6 +76,10 @@ public class Menu {
 			case "2":
 				Menu.Login();
 				break;
+			case "3":
+				Menu.isAcabado = false;
+				break;
+			
 		}
 	}
 
@@ -83,9 +87,9 @@ public class Menu {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("\n------ Sistema Acadêmico SA ------");
-		System.out.println("-----> Login ");
+		System.out.println("-----> Login \n");
 
-		System.out.print("\nDigite seu número de matrícula: ");
+		System.out.print("Digite seu número de matrícula: ");
 		String usuario = sc.next(); // Matricula
 		System.out.print("Digite sua senha: ");
 		String senha = sc.next(); // Cpf
@@ -117,7 +121,7 @@ public class Menu {
 			String matricula_docente = Docente.ListaDocentes.get(senha).getMatricula();
 
 			if (usuario.equals(matricula_docente)) {
-				System.out.println("Olá " + Docente.ListaDocentes.get(senha).getNome() + "! Usuário logado");
+				System.out.println("-----> Olá " + Docente.ListaDocentes.get(senha).getNome() + "! Usuário logado");
 
 				// Como é que eu vou salvar esse login no sistema????
 				EstadoAtual.setNome(Docente.ListaDocentes.get(senha).getNome());
@@ -158,6 +162,7 @@ public class Menu {
 				System.out.println("-----> Menu do Docente ------");
 				System.out.println("-----> Controlar disciplina");
 
+				System.out.println("\n-----> O que você deseja fazer agora? ");
 				System.out.println("1 - Cadastrar disciplina");
 				System.out.println("2 - Editar disciplina");
 				System.out.println("3 - Excluir disciplina");
@@ -182,23 +187,18 @@ public class Menu {
 							String resposta = sc.next();
 
 							if (resposta.equals("y") || resposta.equals("s") || resposta.contains("s")) {
-								System.out.println("Tá ok então, vamos seguir... \n");
+								System.out.println("\n----->   Tá ok então, vamos seguir... \n");
 								isCerto = false;
 							}
 						}
 
-						System.out.println("\nQual o nome do professor? ");
-						String nomeProfessor = sc.next();
+						String professorDisciplina = EstadoAtual.getNome(); //Define o professor atual com professor da dsciplina
 
-
-
-
-
+						System.out.println("-----> A qual turma essa disciplina pertençe? ");
+						// Turma.getDados();
+					
 
 						// CONTINUAR
-
-
-
 
 						// Controle.CadastrarDisciplina();
 
@@ -206,10 +206,12 @@ public class Menu {
 					case 2:
 						// Editar disciplina
 						Menu.UnderConstruction();
+						break;
 
 					case 3:
 						// Excluir disciplina
 						Menu.UnderConstruction();
+						break;
 
 					case 4:
 						System.out.println("\n-----> Saindo....");
@@ -225,10 +227,12 @@ public class Menu {
 				System.out.println("-----> Menu do Docente ------");
 				System.out.println("-----> Controlar turma");
 
+				System.out.println("\n-----> O que você deseja fazer agora? ");
 				System.out.println("1 - Cadastrar turma");
 				System.out.println("2 - Editar turma");
 				System.out.println("3 - Excluir turma");
 				System.out.println("4 - Sair");
+				System.out.print("-----> Digite sua escolha: ");
 
 				int opcaoDisc = sc.nextInt();
 
@@ -245,7 +249,7 @@ public class Menu {
 						// Excluir turma
 						Menu.UnderConstruction();
 						break;
-					
+
 					case 4:
 						System.out.println("\n-----> Saindo....");
 						break;
