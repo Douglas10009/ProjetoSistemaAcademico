@@ -134,13 +134,26 @@ public class Menu {
 		System.out.println("-----> Menu do Docente ------");
 
 		System.out.println("\n-----> O que você deseja fazer agora? ");
-		System.out.println("1 - Cadastrar disciplina");
-		System.out.println("2 - ....");
+		System.out.println("1 - Controlar disciplina");
+		System.out.println("2 - Controlar turma");
+		
+		System.out.println("4 - Cadastrar turma");
+
 		System.out.print("-----> Digite a sua escolha: ");
 
 		int escolha = sc.nextInt(); // TODO Tratar excessões
 		switch (escolha) {
 			case 1:
+				System.out.println("\n------ Sistema Acadêmico SA ------");
+				System.out.println("-----> Menu do Docente ------");
+				System.out.println("-----> Controlar disciplina");
+
+				System.out.println("1 - Cadastrar disciplina");
+				System.out.println("2 - Excluir disciplina");
+				System.out.println("3 - Editar disciplina");
+
+				int opcDisc = sc.nextInt()
+
 				System.out.println("\n------ Sistema Acadêmico SA ------");
 				System.out.println("-----> Menu do Docente ------");
 				System.out.println("-----> Cadastrar Disciplina");

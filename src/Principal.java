@@ -21,7 +21,7 @@ public class Principal {
 			Menu.escolha_login_cadastro();
 
 			// Menu.TelaDocente(); //DEGUB
-			Menu.Login();
+			Menu.Login(); //DEGUB
 
 		} else {
 			while (Menu.isAcabado) {
