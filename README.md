@@ -1,3 +1,0 @@
-# ProjetoSistemaAcademico
-
-Branch de backup
