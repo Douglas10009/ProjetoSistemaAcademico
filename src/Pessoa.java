@@ -1,9 +1,16 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
-import java.util.Calendar;
 import java.util.Map;
 import java.util.Scanner;
+
+
+/*
+ * -- Funções da classe --
+ * Classe para mostrar a parte do design e a parte mais abstrata das classes
+ * 
+ */
+
 
 public class Pessoa {
     String nome = "";
@@ -53,10 +60,6 @@ public class Pessoa {
 
     }
 
-    // public boolean BuscarCPF(String CPF){
-    // BufferedReader ler = new BufferedReader(new FileReader(null))
-    // }
-
     public static void armazenarDadosEstudante() {
         // Cria a pasta e o arquivo de banco de dados, se não já estiver criado.
         File arq = Controle.VerificarPasta_Arquivo("BancoDeDados", "estudante.txt");
@@ -96,45 +99,21 @@ public class Pessoa {
                 gravar.append(";");
                 gravar.append(Entry.getValue().getNome()); // Nome
                 gravar.append(";");
-                gravar.append(Entry.getValue().getMatricula()); // Matricula //TO-DO
+                gravar.append(Entry.getValue().getMatricula()); // Matricula 
+                gravar.append(";");
                 gravar.append(Integer.toString(Entry.getValue().getUltimo_contador())); // Ultimo Contador
                 gravar.append(";");
                 gravar.append("\n");
             }
             gravar.close();
-            System.out.println("\n----> Arquivo de armazenamento de dados criado/atualizado."); // Armazenamento Dados - AVISO
+            System.out.println("----> Arquivo de armazenamento de dados criado/atualizado."); // Armazenamento Dados - AVISO
         } catch (Exception e) {
             System.err.println("\n \n-----> OCORREU UM ERRO INESPERADO"); // error
             e.printStackTrace();
         }
     }
 
-    public String gerarMatricula(String tipo) {
-        // ANO + ID + CONTADOR
-        // ID = Professor(20) ou Estudante(23)
-
-        // Ano atual
-        Calendar cal = Calendar.getInstance();
-        int ano = cal.get(Calendar.YEAR);
-
-        // Id da pessoa
-        int id = 0;
-        int contadorDocente = 0;
-
-        if (tipo.equals("estudante")) {
-            id = 23;
-            Estudante.ultimo_contador++;
-            return ano + Integer.toString(id) + Integer.toString(Estudante.ultimo_contador);
-
-        } else if (tipo.equals("docente")) {
-            id = 20;
-            Docente.ultimo_contador++;
-            return ano + Integer.toString(id) + Integer.toString(Docente.ultimo_contador);
-
-        } else {
-            return null;
-        }
-    }
+    
 
     public void setNome(String nome) {
         this.nome = nome;
