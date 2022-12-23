@@ -105,7 +105,7 @@ public class Pessoa {
                 gravar.append("\n");
             }
             gravar.close();
-            System.out.println("\n----> Arquivo de armazenamento de dados criado/atualizado."); // Armazenamento Dados - AVISO
+            System.out.println("----> Arquivo de armazenamento de dados criado/atualizado."); // Armazenamento Dados - AVISO
         } catch (Exception e) {
             System.err.println("\n \n-----> OCORREU UM ERRO INESPERADO"); // error
             e.printStackTrace();

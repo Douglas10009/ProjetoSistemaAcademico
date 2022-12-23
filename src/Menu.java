@@ -93,6 +93,12 @@ public class Menu {
 
 			if (usuario.equals(matricula_estudante)) {
 				System.out.println("Olá " + Estudante.ListaEstudantes.get(senha).getNome() + "! Usuário logado");
+
+				// Como é que eu vou salvar esse login no sistema????
+				EstadoAtual.setNome(Estudante.ListaEstudantes.get(senha).getNome());
+				EstadoAtual.setEstudante(Estudante.ListaEstudantes.get(senha));
+				// Colocando na classe EstadoAtual, que vai definir qual o usuário atual, até que ele saia
+
 			} else {
 				System.out.println("Esse usuário/n° de matricula não está cadastrado");
 			}
@@ -103,6 +109,13 @@ public class Menu {
 
 			if (usuario.equals(matricula_docente)) {
 				System.out.println("Olá " + Docente.ListaDocentes.get(senha).getNome() + "! Usuário logado");
+
+				// Como é que eu vou salvar esse login no sistema????
+				
+				EstadoAtual.setNome(Docente.ListaDocentes.get(senha).getNome());
+				EstadoAtual.setDocente(Docente.ListaDocentes.get(senha));
+				// Colocando na classe EstadoAtual, que vai definir qual o usuário atual, até
+				// que ele saia
 
 			} else {
 				System.out.println("Esse usuário/n° de matricula não está cadastrado");

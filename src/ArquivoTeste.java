@@ -11,7 +11,8 @@ public class ArquivoTeste {
 
         // teste.forEach((k, v) -> System.out.printf("\n \nkey: %s | value: %s", k, v));
 
-        
+        EstadoAtual estadoAtual = new EstadoAtual();
+        System.out.println(estadoAtual.getNome());
     }
 }
 
