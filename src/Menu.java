@@ -4,8 +4,6 @@ import java.util.Scanner;
 public class Menu {
 	public static boolean isAcabado = true;
 
-
-
 	public static void Cadastrar() {
 		// clear(); //Adicionar quando terminar o debug
 
@@ -59,8 +57,6 @@ public class Menu {
 		}
 	}
 
-
-
 	public static void escolha_login_cadastro() {
 		Scanner sc = new Scanner(System.in);
 
@@ -88,8 +84,6 @@ public class Menu {
 		}
 	}
 
-
-
 	public static void Login() {
 		Scanner sc = new Scanner(System.in);
 
@@ -108,7 +102,8 @@ public class Menu {
 			String matricula_estudante = Estudante.ListaEstudantes.get(senha).getMatricula();
 
 			if (usuario.equals(matricula_estudante)) {
-				System.out.println("\n-----> Olá " + Estudante.ListaEstudantes.get(senha).getNome() + "! Usuário logado :) \n");
+				System.out.println(
+						"\n-----> Olá " + Estudante.ListaEstudantes.get(senha).getNome() + "! Usuário logado :) \n");
 
 				// Como é que eu vou salvar esse login no sistema????
 				EstadoAtual.setNome(Estudante.ListaEstudantes.get(senha).getNome());
@@ -128,7 +123,8 @@ public class Menu {
 			String matricula_docente = Docente.ListaDocentes.get(senha).getMatricula();
 
 			if (usuario.equals(matricula_docente)) {
-				System.out.println("\n-----> Olá " + Docente.ListaDocentes.get(senha).getNome() + "! Usuário logado :)");
+				System.out
+						.println("\n-----> Olá " + Docente.ListaDocentes.get(senha).getNome() + "! Usuário logado :)");
 
 				// Como é que eu vou salvar esse login no sistema????
 				EstadoAtual.setNome(Docente.ListaDocentes.get(senha).getNome());
@@ -137,7 +133,7 @@ public class Menu {
 				// que ele saia
 
 				// Redireciona para a tela do docente
-				Menu.TelaDocente(); //REDIRECIONAMENTO
+				Menu.TelaDocente(); // REDIRECIONAMENTO
 
 			} else {
 				System.out.println("Esse usuário/n° de matricula não está cadastrado");
@@ -149,9 +145,21 @@ public class Menu {
 
 	}
 
-
-
 	public static void TelaDocente() {
+
+
+
+
+
+
+		//TODO #11 AQUI ESTÁ DANDO PROBLEMA, QUANDO SAI DO CONTROLE DE DISCIPLINA, ELE VAI PARA O CONTROLE DE TURMAS, POR QUE??
+
+
+
+
+
+
+
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("\n \n------ Sistema Acadêmico SA ------");
@@ -166,7 +174,7 @@ public class Menu {
 
 		System.out.print("\n-----> Digite a sua escolha: ");
 
-		int escolha = sc.nextInt(); // TODO Tratar excessões
+		int escolha = sc.nextInt(); // TODO #12 Tratar excessões
 
 		switch (escolha) {
 			case 1:
@@ -192,16 +200,14 @@ public class Menu {
 						String nomeDisciplina = "";
 						while (isCerto) {
 							System.out.print("\nDigite o nome da disciplina: ");
-							 nomeDisciplina = sc.next();
+							nomeDisciplina = sc.next();
 
-
-							System.out.println("\n" + nomeDisciplina + ", É o nome da diciplina, certo?");
+							System.out.println("\n" + nomeDisciplina + ", É o nome da disciplina, certo?");
 
 							System.out.print("Insira sua resposta: (y/n)");
 							String resposta = sc.next();
 
 							if (resposta.equals("y") || resposta.equals("s") || resposta.contains("s")) {
-								System.out.println("\n-----> Disciplina cadastrada! :D \n");
 								isCerto = false;
 							}
 						}
@@ -210,20 +216,45 @@ public class Menu {
 																			// disciplina
 						String cpf_Doscente = EstadoAtual.getDocente().getCpf();
 
+						// SETAR UM PROFESSOR NA DISCIPLINA
+						System.out.println(
+								"\n\n-----> Atenção, o professor atual que será o responsável pela disciplina \n\n");
 
-						//SETAR UM PROFESSOR  NA DISCIPLINA
-						System.out.println("\n\n-----> Atenção, o professor atual que será o responsável pela disciplina");
-						Disciplina.CadastrarDisciplina(nomeDisciplina , cpf_Doscente);
+						// SETAR UMA TURMA NA DISCIPLINA
 
-						//SETAR UMA TURMA NA DISCIPLINA
-						//SETAR AO MENOS 1 ESTUDANTE NA DISCIPLINA
+						boolean sair = false;
+						while (!sair) {
+							System.out.print("\n-----> A qual turma essa disciplina pertence? ");
 
+							if (Turma.listaAnoTurma.size() > 0) {
+								Turma.getDados();
+							} else {
+								System.out.println("\n-----> Não existem turmas, crie uma para continuar....");
+								break;
+							}
 
+							System.out.print("\nEscolha uma das turmas acima: (Somente número) ");
+							String turma = sc.next();
+							turma.strip();
 
+							// Verificar se essa turma realmente existe no ArrayList da turma
+							// (listaAnoTurma)
+							for (int i = 0; i < Turma.listaAnoTurma.size(); i++) {
+								if (!Turma.listaAnoTurma.get(i).equals(turma)) {
+									System.out.println("\n-----> Essa turma não existe, tente novamente. :(");
+								} else {
+									Disciplina.CadastrarDisciplina(nomeDisciplina, cpf_Doscente, turma);
+									sair = true;
+									System.out.println(
+											"\n\n-----> Disciplina " + Disciplina.getNomeDisciplina() + ", lecionada por " + Disciplina.ListaDisciplinaDocente.get(nomeDisciplina).getDocenteNome() +" criada com sucesso ^0^\n");
 
+								}
+							}
 
+						}
 
-
+						
+						// SETAR AO MENOS 1 ESTUDANTE NA DISCIPLINA
 
 						// System.out.println("-----> A qual turma essa disciplina pertençe? "); // Vai
 						// ser o professor que criar
@@ -322,8 +353,6 @@ public class Menu {
 				break;
 		}
 	}
-
-
 
 	public static void UnderConstruction() {
 		System.out.println("""

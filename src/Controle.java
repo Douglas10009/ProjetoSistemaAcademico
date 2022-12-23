@@ -7,11 +7,11 @@ public class Controle {
     static boolean jaRodado = false; // Verifica se o programa já foi rodado
 
     public void a() {
-        // String matricula = Estudante.ListaEstudantes.get("111").getMatricula(); //Exemplo de pegar dados no array list
+        // String matricula = Estudante.ListaEstudantes.get("111").getMatricula();
+        // //Exemplo de pegar dados no array list
     }
 
-
-    //Armazena os dados das pessoas que estão no arquivo e colocam no HashMap
+    // Armazena os dados das pessoas que estão no arquivo e colocam no HashMap
     public static void lerArquivo() throws Exception {
 
         // Armazena os dados do estudante no HashMap
@@ -52,8 +52,7 @@ public class Controle {
         }
         ler_2.close();
 
-
-        //Armazena os dados da turma no ArrayList
+        // Armazena os dados da turma no ArrayList
         File arq_3 = Controle.VerificarPasta_Arquivo("BancoDeDados", "turma.txt");
         BufferedReader ler_3 = new BufferedReader(new FileReader(arq_3));
         String linha_3 = ler_3.readLine(); // Primeira linha a ser lida
@@ -63,19 +62,9 @@ public class Controle {
             String[] valores = linha_3.split(";");
 
             Turma.listaAnoTurma.add(valores[contador]);
-            contador ++;
-
-
-
-            
+            contador++;
 
             // TO DO VÊ ISSO AK
-
-
-
-
-
-
 
             linha_3 = ler_3.readLine();
         }
@@ -127,7 +116,8 @@ public class Controle {
                                                                                                             // Estudante
                                                                                                             // Completo
                                                                                                             // - AVISO
-        System.out.println("\n----> Para acessar o portal use as seguntes credenciais: "); // Credenciais Estudante- AVISO
+        System.out.println("\n----> Para acessar o portal use as seguntes credenciais: "); // Credenciais Estudante-
+                                                                                           // AVISO
         System.out.printf("\n - Matrícula: %s", estudante.getMatricula()); // Login Matricula Estudante - AVISO
         System.out.printf("\n - Senha: %s (Seu CPF) \n", estudante.getCpf()); // Senha CPF Estudante - AVISO
         System.out.print("\n-----> OBS: GUARDE ESSES DADOS, SÓ É POSSÍVEL O CADASTRO COM ESSAS INFORMAÇÕES"); // Alerta
@@ -148,9 +138,9 @@ public class Controle {
         docente.setMatricula(matricula);
 
         System.out.printf("\n----> Cadastro do docente %s, realizado com sucesso!", docente.getNome()); // Cadastro
-                                                                                                            // Docente
-                                                                                                            // Completo
-                                                                                                            // - AVISO
+                                                                                                        // Docente
+                                                                                                        // Completo
+                                                                                                        // - AVISO
         System.out.println("\n----> Para acessar o portal use as seguntes credenciais: "); // Credenciais Docente- AVISO
         System.out.printf("\n - Matrícula: %s", docente.getMatricula()); // Login Matricula Docente - AVISO
         System.out.printf("\n - Senha: %s (Seu CPF) \n", docente.getCpf()); // Senha CPF Docente - AVISO
@@ -171,7 +161,7 @@ public class Controle {
         // Id da pessoa
         int id = 0;
 
-        //Verificar tipo
+        // Verificar tipo
         if (tipo.equals("estudante")) {
             id = 23;
             Estudante.ultimo_contador++;
@@ -187,33 +177,55 @@ public class Controle {
         }
     }
 
-    public static void CadastrarDisciplina(){
-        
+    public static void CadastrarDisciplina() {
+
+    }
+
+    public static void PesquisarItemTurma(String item_a_ser_pesquisado) {
+        // boolean sair = false;
+        // for (int i = 0; i < Turma.listaAnoTurma.size(); i++) {
+        //     if (Turma.listaAnoTurma.get(i).equals(item_a_ser_pesquisado)) {
+        //         System.out.println("-----> Essa turma já existe, tente novamente...");
+        //         sair = true;
+        //         break;
+
+        //     }
+        // }
+
+        // if (sair) {
+        //     break;
+        // }
+
+        //O break não funciona aq
     }
 }
 
-
 // public void cadastrarDocente() {
-//     System.out.println("\n \n-----> Cadastrando docente");
-//     Pessoa pessoa = new Pessoa();
+// System.out.println("\n \n-----> Cadastrando docente");
+// Pessoa pessoa = new Pessoa();
 
-//     pessoa.cadastrarEstudante();// Cadastra o docente como pessoa
+// pessoa.cadastrarEstudante();// Cadastra o docente como pessoa
 
-//     Docente.ListaDocentes.put(pessoa.getCpf(), pessoa.getNome());
+// Docente.ListaDocentes.put(pessoa.getCpf(), pessoa.getNome());
 
-//     System.out.printf("\n----> Cadastro do docente %s, realizado com sucesso!", pessoa.getNome()); // Cadastro
-//                                                                                                     // Estudante
-//                                                                                                     // Completo
-//                                                                                                     // - AVISO
+// System.out.printf("\n----> Cadastro do docente %s, realizado com sucesso!",
+// pessoa.getNome()); // Cadastro
+// // Estudante
+// // Completo
+// // - AVISO
 
-//     String matricula = pessoa.gerarMatricula("docente");
-//     Pessoa.armazenarDados("docente", ListaDocentes, matricula);
+// String matricula = pessoa.gerarMatricula("docente");
+// Pessoa.armazenarDados("docente", ListaDocentes, matricula);
 
-//     System.out.println("----> Para acessar o portal use as seguntes credenciais: "); // Credenciais Estudante-
-//                                                                                         // AVISO
-//     System.out.printf("\n - Matrícula: %s", matricula); // Login Matricula Estudante - AVISO
-//     System.out.printf("\n - Senha: %s (Seu CPF) \n", pessoa.getCpf()); // Senha CPF Estudante - AVISO
-//     System.out.println("\n-----> OBS: GUARDE ESSES DADOS, SÓ É POSSÍVEL O CADASTRO COM ESSAS INFORMAÇÕES"); // Alerta
-//                                                                                                             // -
-//                                                                                                             // AVISO
+// System.out.println("----> Para acessar o portal use as seguntes credenciais:
+// "); // Credenciais Estudante-
+// // AVISO
+// System.out.printf("\n - Matrícula: %s", matricula); // Login Matricula
+// Estudante - AVISO
+// System.out.printf("\n - Senha: %s (Seu CPF) \n", pessoa.getCpf()); // Senha
+// CPF Estudante - AVISO
+// System.out.println("\n-----> OBS: GUARDE ESSES DADOS, SÓ É POSSÍVEL O
+// CADASTRO COM ESSAS INFORMAÇÕES"); // Alerta
+// // -
+// // AVISO
 // }

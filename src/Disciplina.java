@@ -2,14 +2,46 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Disciplina {
-    //Nome da disciplina - CPF docente
-    static Map<String, String> ListaDisciplinaDocente = new HashMap<String, String>();
-    static Map<String, String> ListaDisciplinaTurma = new HashMap<String, String>();
+    //Nome da disciplina - Objeto Disciplina
+    static Map<String, Disciplina> ListaDisciplinaDocente = new HashMap<String, Disciplina>();
 
-    public static void CadastrarDisciplina(String nomeDisciplina , String cpf_Doscente){
-        //Associar a disciplina a um docente
-        Disciplina.ListaDisciplinaDocente.put(nomeDisciplina, cpf_Doscente);
+    static String nomeDisciplina = "";
+    String cpf_docente = "";
+    String turma = "";
 
-        //Como associar isso a uma turma?
+
+    public static void CadastrarDisciplina(String nomeDisciplina , String cpf_docente, String turma){
+        Disciplina disciplina = new Disciplina();
+
+        disciplina.setNomeDisciplina(nomeDisciplina);
+        disciplina.setDocenteCpf(cpf_docente);
+        disciplina.setTurma(turma);
+
+        Disciplina.ListaDisciplinaDocente.put(nomeDisciplina, disciplina);
+
     }
+
+    public void setNomeDisciplina(String nomeDisciplina){
+        Disciplina.nomeDisciplina = nomeDisciplina;
+    }
+
+    public static String getNomeDisciplina() {
+        return nomeDisciplina;
+    }
+
+    public void setDocenteCpf(String cpf_docente){
+        this.cpf_docente = cpf_docente;
+    }
+
+    public String getDocenteNome(){
+        //Pegar o CPF do docente
+        //Veirificar se existe
+        //Pesquisar o CPF do docente no ListaDocente
+        //Retornar o nome do docente
+    }
+
+    public void setTurma(String turma){
+        this.turma = turma;
+    }
+    
 }
