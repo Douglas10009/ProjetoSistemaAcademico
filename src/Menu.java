@@ -177,7 +177,8 @@ public class Menu {
 				System.out.println("1 - Cadastrar disciplina");
 				System.out.println("2 - Editar disciplina");
 				System.out.println("3 - Excluir disciplina");
-				System.out.println("4 - Sair");
+				System.out.println("4 - Visualizar disciplinas");
+				System.out.println("5 - Sair");
 				System.out.print("\n-----> Digite sua escolha: ");
 				int opcaoDisciplina = sc.nextInt();
 
@@ -251,7 +252,18 @@ public class Menu {
 
 								System.out.println("Agora digite quais desses estudantes estão nessa disciplina: ");
 
-								Estudante.getDados();
+								boolean boolea = false;
+								if (Estudante.ListaEstudantes.size() > 0) {
+									Estudante.getDados();
+								}else{
+									System.out.println("-----> Não há estudantes cadastrados, por favor, cadastre alguns, e tente novamente....");
+									boolea = true;
+									break;
+								}
+
+								if (boolea) {
+									break;
+								}
 
 								System.out.print("\n-----> Digite o CPF do estudante: ");
 
@@ -295,16 +307,6 @@ public class Menu {
 
 						}
 
-						// SETAR AO MENOS 1 ESTUDANTE NA DISCIPLINA
-
-						// System.out.println("-----> A qual turma essa disciplina pertençe? "); // Vai
-						// ser o professor que criar
-						// Turma.getDados();
-
-						// CONTINUAR
-
-						// Controle.CadastrarDisciplina();
-
 						break;
 					case 2:
 						// Editar disciplina
@@ -317,6 +319,13 @@ public class Menu {
 						break;
 
 					case 4:
+						for (int i = 0; i < Disciplina.ListaDisciplina.size(); i++) {
+							System.out.println(Disciplina.ListaDisciplina.values());
+						}
+
+						
+						break;
+					case 5:
 						System.out.println("\n-----> Saindo....");
 						break;
 

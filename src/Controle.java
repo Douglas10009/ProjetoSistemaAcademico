@@ -63,9 +63,7 @@ public class Controle {
 
             Turma.listaAnoTurma.add(valores[contador]);
             contador++;
-
-            // TO DO VÊ ISSO AK
-
+            
             linha_3 = ler_3.readLine();
         }
         ler_3.close();
