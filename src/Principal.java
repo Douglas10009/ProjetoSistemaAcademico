@@ -32,6 +32,7 @@ public class Principal {
 		Pessoa.armazenarDadosEstudante(); // Escreve os dados no arquivo do estudante
 		Pessoa.armazenarDadosDocente(); // Escreve os dados no arquivo do docente
 		Pessoa.armazenarDadosTurma(); // Escreve os dados no arquivo da turma
+		Pessoa.armazanarDadosDisciplina(); // Escreve os dados no arquivo da disciplina
 
 		// Só pra eu me organizar --
 		// Menu.login();

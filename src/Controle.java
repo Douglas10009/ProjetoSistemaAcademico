@@ -70,6 +70,18 @@ public class Controle {
         }
         ler_3.close();
 
+
+
+
+
+        //TODO #14 LER OS ARQUIVOS DA DISCIPLINA
+        // - LER OS OUTROS DADOS
+        // - LER OS DADOS DOS ESTUDANTES
+
+
+
+
+
         System.out.println("\n-----> Sucesso na leitura dos dados");
     }
 

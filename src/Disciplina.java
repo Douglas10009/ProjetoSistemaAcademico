@@ -36,6 +36,10 @@ public class Disciplina {
         this.cpf_docente = cpf_docente;
     }
 
+    public String getDocenteCpf(){
+        return this.cpf_docente;
+    }
+
     public String getDocenteNome(String cpf_Docente){
         //Posso verificar se o CPF realmente existe ou não
         return Docente.ListaDocentes.get(cpf_Docente).getNome();

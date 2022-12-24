@@ -104,8 +104,9 @@ public class Pessoa {
                 gravar.append("\n");
             }
             gravar.close();
-            System.out.println("----> Arquivo de armazenamento de dados do docente criado/atualizado."); // Armazenamento Dados -
-                                                                                              // AVISO
+            System.out.println("----> Arquivo de armazenamento de dados do docente criado/atualizado."); // Armazenamento
+                                                                                                         // Dados -
+            // AVISO
         } catch (Exception e) {
             System.err.println("\n \n-----> OCORREU UM ERRO INESPERADO"); // error
             e.printStackTrace();
@@ -127,13 +128,49 @@ public class Pessoa {
             }
 
             gravar.close();
-            System.out.println("----> Arquivo de armazenamento de dados da turma criado/atualizado."); // Armazenamento Dados -
-                                                                                              // AVISO
+            System.out.println("----> Arquivo de armazenamento de dados da turma criado/atualizado."); // Armazenamento
+                                                                                                       // Dados -
+            // AVISO
         } catch (Exception e) {
             System.err.println("\n \n-----> OCORREU UM ERRO INESPERADO"); // error
             e.printStackTrace();
         }
 
+    }
+
+    public static void armazanarDadosDisciplina(){
+        // Cria a pasta e o arquivo de banco de dados, se não já estiver criado.
+        File arq = Controle.VerificarPasta_Arquivo("BancoDeDados", "disciplina.txt");
+
+        try {
+            PrintWriter gravar = new PrintWriter(new FileWriter(arq)); // O true, como segundo parâmetro, é para ele
+                                                                       // sobreescrever
+            for (Map.Entry<String, Disciplina> Entry : Disciplina.ListaDisciplina.entrySet()) {
+                gravar.append(Entry.getKey()); // CPF
+                gravar.append(";");
+                gravar.append(Entry.getValue().getNomeDisciplina()); // Nome da disciplina
+                gravar.append(";");
+                gravar.append(Entry.getValue().getDocenteCpf()); // CPF do docente
+                gravar.append(";");
+                gravar.append(Entry.getValue().getTurma()); // Turma
+                gravar.append(";");
+
+                for (int i = 0; i < Disciplina.ListaDisciplina.get(Entry.getValue().getNomeDisciplina()).ListaDisciplinaDeEstudante.size(); i++) {
+					gravar.append(Estudante.ListaEstudantes.get(Disciplina.ListaDisciplina.get(Entry.getValue().getNomeDisciplina()).ListaDisciplinaDeEstudante.get(i)).getNome());
+                    gravar.append(",");
+				}
+
+
+                gravar.append(";");
+                gravar.append("\n");
+            }
+            gravar.close();
+            System.out.println("\n----> Arquivo de armazenamento de dados criado/atualizado."); // Armazenamento Dados -
+                                                                                                // AVISO
+        } catch (Exception e) {
+            System.err.println("\n \n-----> OCORREU UM ERRO INESPERADO"); // error
+            e.printStackTrace();
+        }
     }
 
     public void setNome(String nome) {
