@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
@@ -147,18 +148,8 @@ public class Menu {
 
 	public static void TelaDocente() {
 
-
-
-
-
-
-		//TODO #11 AQUI ESTÁ DANDO PROBLEMA, QUANDO SAI DO CONTROLE DE DISCIPLINA, ELE VAI PARA O CONTROLE DE TURMAS, POR QUE??
-
-
-
-
-
-
+		// TODO #11 AQUI ESTÁ DANDO PROBLEMA, QUANDO SAI DO CONTROLE DE DISCIPLINA, ELE
+		// VAI PARA O CONTROLE DE TURMAS, POR QUE??
 
 		Scanner sc = new Scanner(System.in);
 
@@ -224,6 +215,8 @@ public class Menu {
 
 						boolean sair = false;
 						while (!sair) {
+     						ArrayList<String> Lista_de_Estudantes = new ArrayList<String>();
+
 							System.out.print("\n-----> A qual turma essa disciplina pertence? ");
 
 							if (Turma.listaAnoTurma.size() > 0) {
@@ -235,7 +228,7 @@ public class Menu {
 
 							System.out.print("\nEscolha uma das turmas acima: (Somente número) ");
 							String turma = sc.next();
-							turma.strip();
+							turma.strip(); // tirar o espaço do conteudo
 
 							// Verificar se essa turma realmente existe no ArrayList da turma
 							// (listaAnoTurma)
@@ -243,17 +236,65 @@ public class Menu {
 								if (!Turma.listaAnoTurma.get(i).equals(turma)) {
 									System.out.println("\n-----> Essa turma não existe, tente novamente. :(");
 								} else {
-									Disciplina.CadastrarDisciplina(nomeDisciplina, cpf_Doscente, turma);
+									// Disciplina.CadastrarDisciplina(nomeDisciplina, cpf_Doscente, turma);
 									sair = true;
 									System.out.println(
-											"\n\n-----> Disciplina " + Disciplina.getNomeDisciplina() + ", lecionada por " + Disciplina.ListaDisciplinaDocente.get(nomeDisciplina).getDocenteNome() +" criada com sucesso ^0^\n");
+											"\n\n-----> Disciplina " + nomeDisciplina + ", lecionada por "
+													+ professorDisciplina + " criada com sucesso ^0^\n");
 
 								}
 							}
 
+							boolean sair2 = false;
+							while (!sair2) {
+								
+
+								System.out.println("Agora digite quais desses estudantes estão nessa disciplina: ");
+
+								Estudante.getDados();
+
+								System.out.print("\n-----> Digite o CPF do estudante: ");
+
+
+
+								//TODO #13 VERIFICAR SE O ESTUDANTE JÁ FOI ADICIONADO
+
+
+								
+								String cpf_estudante = sc.next();
+
+								if (Estudante.ListaEstudantes.get(cpf_estudante) == null) {
+									System.out.println(
+											"\n-----> O CPF não existe para o estudante, por favor, tente novamente...\n");
+								} else {
+									// Adicionar o Estudante na classe disciplina de alguma forma
+									Lista_de_Estudantes.add(cpf_estudante);
+
+									System.out.println(
+											"-----> Estudante " + Estudante.ListaEstudantes.get(cpf_estudante).getNome()
+													+ " cadastrado na disciplina com sucesso! ");
+
+									System.out.print("\nGostaria de adicionar mais estudantes? (y/n) ");
+									String opc = sc.next();
+
+									if (opc.contains("n")) {
+										break;
+									}
+
+								}
+							}
+
+							Disciplina.CadastrarDisciplina(nomeDisciplina, cpf_Doscente, turma, Lista_de_Estudantes);
+							System.out.println("\n \n-----> A disciplina de " + Disciplina.ListaDisciplina.get(nomeDisciplina).getNomeDisciplina() + ",");
+							System.out.println("-----> A disciplina cadastrada por " + Disciplina.ListaDisciplina.get(nomeDisciplina).getDocenteNome(cpf_Doscente) + ",");
+							System.out.println("-----> Da turma do " + Disciplina.ListaDisciplina.get(nomeDisciplina).getTurma() + "° ano");
+							System.out.println("-----> Com os seguintes estudantes: ");
+							for (int i = 0; i < Disciplina.ListaDisciplina.get(nomeDisciplina).ListaDisciplinaDeEstudante.size(); i++) {
+								System.out.println(Estudante.ListaEstudantes.get(Disciplina.ListaDisciplina.get(nomeDisciplina).ListaDisciplinaDeEstudante.get(i)).getNome());
+							}
+
 						}
 
-						
 						// SETAR AO MENOS 1 ESTUDANTE NA DISCIPLINA
 
 						// System.out.println("-----> A qual turma essa disciplina pertençe? "); // Vai
